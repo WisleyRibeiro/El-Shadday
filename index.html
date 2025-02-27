@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El-Shadday - Login</title>
-    <link rel="stylesheet" href="html_css/login/login.css">
+    <link rel="stylesheet" href="/html_css/login/login.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="login-container">
         <h2>Bem-vindo</h2>
-        <form class="login-form">
+        <form class="login-form" action="login.php" method="POST">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="seuemail@igreja.com">
+                <input type="email" id="email" name="email" placeholder="seuemail@igreja.com">
             </div>
             <div class="form-group">
                 <label for="password">Senha</label>
-                <input type="password" id="password" placeholder="Sua senha">
+                <input type="password" id="password" name="password" placeholder="Sua senha">
             </div>
             <button type="submit" class="login-button">Login</button>
         </form>
