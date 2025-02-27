@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - El-Shadday</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="dashboard.js"></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h3>El-Shadday</h3>
+            <button class="sidebar-toggle-btn" onclick="toggleSidebar()">
+                <i class="fas fa-chevron-left"></i>  </button>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="#" class="active">
+                        <i class="icon"><i class="fas fa-home"></i></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon"><i class="fas fa-church"></i></i> <span>Minhas Unidades</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon"><i class="fas fa-users"></i></i> <span>Membros cadastrados</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="users_system.html">
+                        <i class="icon"><i class="fas fa-user-cog"></i></i> <span>Usuários do sistema</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon"><i class="fas fa-question-circle"></i></i> <span>Ajuda</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html">
+                <i class="icon"><i class="fas fa-sign-out-alt"></i></i> <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header class="header">
+            <div class="header-left">
+                <h2><span id="nome-usuario"></span></h2>
+            </div>
+            <div class="header-right">
+                <span class="user-info" id="user-phone">+91 987 654 4524</span>
+            </div>
+        </header>
+        <div class="widgets-container">
+            <div class="widget widget-storage">
+                <div class="widget-header">
+                    <h3>Files Storage</h3>
+                </div>
+                <div class="widget-body">
+                    <div class="storage-info">
+                        <span class="storage-used">778 GB of 10 TB</span>
+                        <span class="storage-percent">75%</span>
+                    </div>
+                    <div class="storage-categories">
+                        <div class="category">Documents <span>2480</span></div>
+                        <div class="category">Images <span>62,450</span></div>
+                        <div class="category">Videos <span>125</span></div>
+                        <div class="category">Audios <span>750</span></div>
+                        <div class="category">Zip Files <span>175</span></div>
+                    </div>
+                    <div class="storage-upload">
+                        <span>15468 Upload</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget widget-revenue">
+                <div class="widget-header">
+                    <h3>Total Revenue</h3>
+                </div>
+                <div class="widget-body">
+                    <div class="revenue-value">8742</div>
+                    <div class="revenue-period">Revenue today</div>
+                </div>
+            </div>
+
+            <div class="widget widget-sales">
+                <div class="widget-header">
+                    <h3>Daily Sales</h3>
+                </div>
+                <div class="widget-body">
+                    <div class="sales-chart">
+                        <div class="chart-placeholder">Gráfico de Vendas</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="widget widget-survey">
+                <div class="widget-header">
+                    <h3>Hospital Survey</h3>
+                </div>
+                <div class="widget-body">
+                    <p>Informações da pesquisa do hospital podem ir aqui.</p>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>&copy; 2025 El-Shadday Church System</p>
+        </footer>
+    </main>
+</body>
+</html>

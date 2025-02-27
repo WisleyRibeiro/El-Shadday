@@ -15,10 +15,10 @@ if (!$conn) {
 
 // Recebe os dados do formulário
 $email = $_POST["email"];
-$senha_digitada = $_POST["password"]; // Renomeado para evitar confusão
+$senha_digitada = $_POST["password"];
 
-// Consulta SQL para buscar o usuário pelo email
-$query = "SELECT senha FROM usuarios WHERE email = $1";
+// Consulta SQL para buscar o usuário pelo email, incluindo username e user_type
+$query = "SELECT senha, congregacao_id, user_type, username, phone_number FROM usuarios WHERE email = $1";
 $result = pg_query_params($conn, $query, array($email));
 
 if ($result) {
@@ -26,22 +26,32 @@ if ($result) {
     if ($row) {
         $senha_banco = $row["senha"];
 
-        // Verificação da senha (por enquanto, comparação direta - INSEGURO em produção)
-        if ($senha_digitada == $senha_banco) {
-            echo "Login realizado com sucesso!";
-            // Aqui você irá redirecionar para a página principal do sistema
-            // header("Location: dashboard.php"); // Próximo passo: redirecionamento
-            // exit(); // Próximo passo: redirecionamento
-        } else {
-            echo "Senha incorreta.";
+        if ($senha_digitada == $senha_banco) 
+        {
+            // Login Success - Exibe alert de sucesso e redireciona para dashboard.html com congregacao_id, user_type, primeiro_nome e phone_number
+            $nome_completo = $row["username"];
+            $nome_array = explode(" ", $nome_completo);
+            $primeiro_nome = $nome_array[0];
+            echo "<script>alert('Login realizado com sucesso!'); window.location.href = 'dashboard.html?congregacao_id=" . $row["congregacao_id"] . "&user_type=" . $row["user_type"] . "&primeiro_nome=" . urlencode($primeiro_nome) . "&phone_number=" . urlencode($row["phone_number"]) . "';</script>";
+            exit();
+        }
+        else 
+        {
+            // Senha Incorreta - Exibe alert de senha incorreta
+            echo "<script>alert('Senha incorreta. Tente novamente.'); window.location.href = 'index.html?login_status=incorrect_password_js_alert';</script>";
+            exit();
         }
     } else {
-        echo "Email não encontrado.";
+        // Email não encontrado - Exibe alert de email não encontrado
+            echo "<script>alert('Email não encontrado. Verifique seu email.'); window.location.href = 'index.html?login_status=email_not_found_js_alert';</script>";
+        exit();
     }
 } else {
-    echo "Erro ao consultar o banco de dados.";
+    // Erro no banco de dados - Exibe alert de erro de banco de dados
+    echo "<script>alert('Erro ao conectar com o banco de dados. Tente novamente mais tarde.'); window.location.href = 'index.html?login_status=database_error_js_alert';</script>";
+    exit();
 }
 
-pg_close($conn); // Fecha a conexão com o banco de dados
+pg_close($conn);
 
 ?>

@@ -1,0 +1,397 @@
+/* dashboard.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1e293b;
+    color: #f8fafc;
+    margin: 0;
+    overflow-x: hidden;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2d3748;
+    color: #cbd5e0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+.sidebar-header {
+    text-align: left;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar.collapsed .sidebar-header {
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-header h3 {
+    color: #cbd5e0;
+    font-weight: 500;
+    font-size: 1.8em;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar.collapsed .sidebar-header h3 {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.sidebar-toggle-btn {
+    background: none;
+    border: none;
+    color: #cbd5e0;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-toggle-btn:hover {
+    color: #ffffff;
+}
+
+.sidebar.collapsed .sidebar-toggle-btn {
+    transform: rotate(180deg);
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    color: #cbd5e0;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background-color: #374151;
+    color: #ffffff;
+}
+
+.sidebar-nav a .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Aumentei um pouco o tamanho dos ícones */
+    height: 30px; /* Aumentei um pouco o tamanho dos ícones */
+    /* Degradê linear para os ícones do menu */
+    background: linear-gradient(135deg, #6366f1, #374151);
+    color: white;
+    border-radius: 8px; /* Bordas mais arredondadas */
+    margin-right: 10px;
+    font-size: 1.2em; /* Ajustei o tamanho da fonte dos ícones */
+    font-style: normal;
+    transition: margin-right 0.3s ease, background-color 0.3s ease; /* Transição na cor de fundo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adicionando uma leve sombra */
+}
+
+.sidebar-nav a:hover .icon,
+.sidebar-nav a.active .icon {
+    background: linear-gradient(135deg, #5a5de4, #2d3748); /* Degradê mais claro no hover/ativo */
+}
+
+
+.sidebar.collapsed .sidebar-nav a .icon {
+    margin-right: 0;
+}
+
+.sidebar-nav a span {
+    font-size: 1em;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease, margin-left 0.3s ease;
+    margin-left: 0;
+}
+
+.sidebar.collapsed .sidebar-nav a span {
+    opacity: 0;
+    visibility: hidden;
+    margin-left: -15px;
+    position: absolute;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #4a5568;
+    padding-bottom: 20px;
+}
+
+.sidebar-footer a {
+    display: flex;
+    align-items: center;
+    color: #cbd5e0;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-footer a:hover {
+    background-color: #374151;
+    color: #ffffff;
+}
+
+.sidebar-footer a .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Aumentei um pouco o tamanho dos ícones */
+    height: 30px; /* Aumentei um pouco o tamanho dos ícones */
+    /* Degradê linear para o ícone de logout */
+    background: linear-gradient(135deg, #4a5568, #2d3748); /* Degradê mais suave para logout */
+    color: white;
+    border-radius: 8px; /* Bordas mais arredondadas */
+    margin-right: 10px;
+    font-size: 1.2em; /* Ajustei o tamanho da fonte dos ícones */
+    font-style: normal;
+    transition: margin-right 0.3s ease, background-color 0.3s ease; /* Transição na cor de fundo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adicionando uma leve sombra */
+}
+
+.sidebar-footer a:hover .icon {
+    background: linear-gradient(135deg, #3f4a5c, #1e293b); /* Degradê mais claro no hover do logout */
+}
+
+
+.sidebar.collapsed .sidebar-footer a .icon {
+    margin-right: 0;
+}
+
+.sidebar-footer a span {
+    font-size: 1em;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease, margin-left 0.3s ease;
+    margin-left: 0;
+}
+
+.sidebar.collapsed .sidebar-footer a span {
+    opacity: 0;
+    visibility: hidden;
+    margin-left: -15px;
+    position: absolute;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    margin-left: 270px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.sidebar-collapsed {
+    margin-left: 100px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #4a5568;
+}
+
+.header-left {
+    padding-left: 10px;
+}
+
+.header-left h2 {
+    color: #cbd5e0;
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 500;
+}
+
+.header-right .user-info {
+    color: #cbd5e0;
+    font-size: 1em;
+}
+
+.widgets-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.widget {
+    background-color: #2d3748;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+}
+
+.widget-header {
+    margin-bottom: 20px;
+}
+
+.widget-header h3 {
+    color: #cbd5e0;
+    font-size: 1.3em;
+    font-weight: 500;
+    margin: 0;
+}
+
+.widget-body {
+    /* Widget body styles here */
+}
+
+/* Widget de Storage */
+.widget-storage .storage-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #a3b1bd;
+}
+
+.widget-storage .storage-used {
+
+}
+
+.widget-storage .storage-percent {
+    color: #6366f1;
+    font-weight: bold;
+}
+
+.widget-storage .storage-categories {
+    margin-bottom: 20px;
+}
+
+.widget-storage .category {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: #cbd5e0;
+    margin-bottom: 8px;
+}
+
+.widget-storage .category span {
+    color: #a3b1bd;
+}
+
+.widget-storage .storage-upload {
+    text-align: right;
+    font-size: 0.9em;
+    color: #a3b1bd;
+    margin-top: 15px;
+}
+
+/* Widget de Revenue */
+.widget-revenue .revenue-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.widget-revenue .revenue-period {
+    font-size: 1em;
+    color: #a3b1bd;
+}
+
+/* Widget de Sales Chart */
+.widget-sales .sales-chart {
+    height: 180px;
+    background-color: #374151;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a3b1bd;
+    font-size: 0.9em;
+}
+
+/* Footer */
+.main-content .footer {
+    text-align: center;
+    padding-top: 25px;
+    margin-top: 40px;
+    border-top: 1px solid #4a5568;
+    color: #777;
+    font-size: 0.9em;
+    padding-bottom: 20px;
+}
+
+/* Media Query for responsiveness - Example for smaller screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px;
+        overflow: hidden;
+    }
+    .sidebar-header h3,
+    .sidebar-nav a span,
+    .sidebar-footer a span {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .sidebar-nav a .icon,
+    .sidebar-footer a .icon {
+        margin-right: 0;
+    }
+    .main-content {
+        margin-left: 80px;
+        padding: 20px;
+    }
+    .header {
+        margin-bottom: 20px;
+    }
+    .widgets-container {
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .widget {
+        padding: 15px;
+    }
+    .sidebar .sidebar-toggle-btn {
+        transform: rotate(180deg);
+    }
+}

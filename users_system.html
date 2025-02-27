@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários do Sistema</title>
+    <link rel="stylesheet" href="users_system.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>El-Shadday</h3>
+            <button class="sidebar-toggle-btn" onclick="toggleSidebar()">
+                <i class="fas fa-chevron-left"></i>  </button>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home icon"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-church icon"></i> <span>Minhas Unidades</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-users icon"></i> <span>Membros cadastrados</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="users_system.html" class="active">
+                        <i class="fas fa-user-cog icon"></i> <span>Usuários do sistema</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-question-circle icon"></i> <span>Ajuda</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="logout.php">
+                <i class="fas fa-sign-out-alt icon"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header class="header">
+            <div class="header-left">
+                <h2>Usuários do Sistema</h2>
+            </div>
+            <div class="header-right">
+                <div class="user-info">
+                    <span id="nome-usuario">Bem-vindo, Usuário!</span>
+                    <span id="user-phone">Telefone: (XX) XXXX-XXXX</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-area">
+            <p>Conteúdo da página de Usuários do Sistema aqui.</p>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 Painel Admin. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="users_system.js"></script>
+</body>
+</html>
