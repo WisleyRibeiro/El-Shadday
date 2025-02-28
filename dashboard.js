@@ -1,37 +1,40 @@
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
+    
+    // Captura e validação dos parâmetros
     const primeiroNome = urlParams.get('primeiro_nome');
     const phoneNumber = urlParams.get('phone_number');
-    const userType = urlParams.get('user_type'); // Pega o user_type da URL
+    const userType = urlParams.get('user_type');
+    const congregacaoId = urlParams.get('congregacao_id');
 
-    // Verifica se 'primeiroNome' e 'phoneNumber' existem antes de salvar
-    if (primeiroNome && phoneNumber) {
-        // Salva o primeiro nome, telefone e user_type no sessionStorage
-        sessionStorage.setItem('primeiroNome', primeiroNome);
-        sessionStorage.setItem('phoneNumber', phoneNumber); // Vamos continuar salvando, mesmo que não mostremos agora
-        sessionStorage.setItem('userType', userType); // Salva o user_type no sessionStorage
+    // Validação rigorosa do congregacao_id
+    if (!congregacaoId || isNaN(congregacaoId)) {
+        console.error('ID da congregação inválido ou ausente na URL.');
+        alert('Erro: ID da congregação não encontrado. Redirecionando...');
+        window.location.href = 'index.html';
+        return;
     }
 
+    // Salva no sessionStorage como número
+    sessionStorage.setItem('primeiroNome', primeiroNome || 'Usuário');
+    sessionStorage.setItem('phoneNumber', phoneNumber || 'Não informado');
+    sessionStorage.setItem('userType', userType || 'Não Definido');
+    sessionStorage.setItem('congregacao_id', parseInt(congregacaoId, 10));
+
+    // Atualiza a UI
     const nomeUsuarioSpan = document.getElementById('nome-usuario');
-    const phoneSpan = document.getElementById('user-phone'); // Usaremos 'phoneSpan' para mostrar o user_type agora
+    const phoneSpan = document.getElementById('user-phone');
+    nomeUsuarioSpan.textContent = `Bem-vindo, ${sessionStorage.getItem('primeiroNome')}!`;
+    phoneSpan.textContent = `Tipo: ${sessionStorage.getItem('userType')}`;
 
-    // Tenta pegar o primeiro nome do sessionStorage
-    const storedPrimeiroNome = sessionStorage.getItem('primeiroNome');
-    if (storedPrimeiroNome) {
-        nomeUsuarioSpan.textContent = "Bem-vindo, " + storedPrimeiroNome + "!";
-    } else {
-        nomeUsuarioSpan.textContent = "Bem-vindo, Usuário!"; // Fallback se não tiver no sessionStorage
-    }
-
-    // Tenta pegar o user_type do sessionStorage (MUDAMOS PARA user_type)
-    const storedUserType = sessionStorage.getItem('userType'); // Pega o userType do sessionStorage
-    if (storedUserType) {
-        phoneSpan.textContent = "Tipo: " + storedUserType; // **AGORA MOSTRAMOS user_type NO phoneSpan**
-    } else {
-        phoneSpan.textContent = "Tipo: Não Definido"; // Fallback se não tiver user_type no sessionStorage
-    }
+    // Log para depuração
+    console.log('Dados salvos:', {
+        congregacaoId: sessionStorage.getItem('congregacao_id'),
+        userType: sessionStorage.getItem('userType')
+    });
 });
 
+// ... toggleSidebar() mantido ...
 function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
     const mainContent = document.querySelector('.main-content');

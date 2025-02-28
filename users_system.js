@@ -20,13 +20,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função para buscar os usuários do servidor
     function fetchUsers() {
-        fetch('users_system.php')
-            .then(response => response.json())
+        const congregacaoId = sessionStorage.getItem('congregacao_id');
+        console.log('Congregacao ID:', congregacaoId);
+    
+        fetch(`users_system.php?congregacao_id=${congregacaoId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na rede');
+                }
+                return response.json();
+            })
             .then(data => {
-                renderUserBoxes(data);
+                if (data.success) {
+                    renderUserBoxes(data.data);
+                } else {
+                    console.error('Erro do servidor:', data.error);
+                    alert('Erro: ' + data.error);
+                }
             })
             .catch(error => {
                 console.error('Erro ao buscar usuários:', error);
+                alert('Falha ao carregar usuários. Verifique o console.');
             });
     }
 
