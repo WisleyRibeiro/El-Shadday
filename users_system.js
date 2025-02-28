@@ -2,6 +2,82 @@ document.addEventListener('DOMContentLoaded', function() {
     const nomeUsuarioSpan = document.getElementById('nome-usuario');
     const phoneSpan = document.getElementById('user-phone');
 
+        // Modal de Cadastro
+        const addUserBtn = document.getElementById('addUserBtn');
+        const modal = document.getElementById('addUserModal');
+        const closeModal = document.querySelector('.close-modal');
+        const userForm = document.getElementById('userForm');
+        const userTypesDatalist = document.getElementById('userTypes');
+    
+        // Preenche o ID da congregação
+        document.getElementById('congregacaoId').value = sessionStorage.getItem('congregacao_id');
+    
+        // Abrir modal
+        addUserBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+            loadUserTypes();
+        });
+    
+        // Fechar modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    
+        // Fechar ao clicar fora
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    
+        // Carregar tipos de usuário
+        function loadUserTypes() {
+            const congregacaoId = sessionStorage.getItem('congregacao_id');
+            fetch(`get_user_types.php?congregacao_id=${congregacaoId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        userTypesDatalist.innerHTML = data.user_types
+                            .map(type => `<option value="${type}">${type}</option>`)
+                            .join('');
+                    }
+                })
+                .catch(error => console.error('Erro:', error));
+        }
+    
+        // Enviar formulário
+        userForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            // Validar senhas
+            if (document.getElementById('password').value !== document.getElementById('confirmPassword').value) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+    
+            const formData = new FormData(this);
+    
+            fetch('add_user.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Usuário cadastrado com sucesso!');
+                    modal.style.display = 'none';
+                    this.reset();
+                    fetchUsers(); // Recarrega a lista
+                } else {
+                    alert('Erro: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao cadastrar usuário');
+            });
+        });
+
     // Tenta pegar o primeiro nome do sessionStorage
     const storedPrimeiroNome = sessionStorage.getItem('primeiroNome');
     if (storedPrimeiroNome) {
