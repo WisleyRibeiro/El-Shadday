@@ -298,16 +298,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // Função para alternar a sidebar (JÁ EXISTENTE - MANTIDA)
-    function toggleSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        const mainContent = document.querySelector('.main-content');
-        if (sidebar && mainContent) {
-            sidebar.classList.toggle('collapsed');
-            mainContent.classList.toggle('sidebar-collapsed');
-        } else {
-            console.error("Sidebar or Main content elements not found!");
-        }
-    }
+}); // FECHAMENTO DO DOMContentLoaded
 
-});
+
+// Função para alternar a sidebar (MOVIDA PARA ESCOPO GLOBAL)
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
+    if (sidebar && mainContent) {
+        sidebar.classList.toggle('collapsed');
+        mainContent.classList.toggle('sidebar-collapsed');
+    } else {
+        console.error("Sidebar or Main content elements not found!");
+    }
+}
