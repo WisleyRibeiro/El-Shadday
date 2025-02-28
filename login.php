@@ -5,45 +5,55 @@ $password = "dUnTnycqXe2ppHv6";
 $port = 5432;
 $database = "postgres";
 
+// Função auxiliar para exibir alertas
+function showAlert($message, $redirect = 'index.html') {
+    echo "<script>
+        alert('" . addslashes($message) . "');
+        window.location.href = '$redirect';
+    </script>";
+    exit;
+}
+
 $conn = pg_connect("host=" . $hostname . " port=" . $port . " dbname=" . $database . " user=" . $username . " password=" . $password);
 
 if (!$conn) {
-    echo json_encode(['success' => false, 'error' => 'Falha na conexão com o banco de dados.']);
-    exit;
+    showAlert('Falha na conexão com o banco de dados.');
 }
 
 $email = $_POST["email"] ?? '';
 $senha_digitada = $_POST["password"] ?? '';
 
-// Consulta corrigida para evitar SQL injection e validar congregacao_id
+// Validação de campos obrigatórios
+if(empty($email)) {
+    showAlert('Por favor, informe seu e-mail.');
+}
+
+if(empty($senha_digitada)) {
+    showAlert('Por favor, informe sua senha.');
+}
+
 $query = "SELECT senha, congregacao_id, user_type, username, phone_number FROM usuarios WHERE email = $1";
 $result = pg_query_params($conn, $query, array($email));
 
 if (!$result) {
-    echo json_encode(['success' => false, 'error' => 'Erro na consulta ao banco de dados.']);
-    exit;
+    showAlert('Erro na consulta ao banco de dados.');
 }
 
 $row = pg_fetch_assoc($result);
 if (!$row) {
-    echo json_encode(['success' => false, 'error' => 'Email não encontrado.']);
-    exit;
+    showAlert('E-mail não encontrado.');
 }
 
-if ($senha_digitada !== $row["senha"]) {
-    echo json_encode(['success' => false, 'error' => 'Senha incorreta.']);
-    exit;
+$senha_hash_digitada = md5(trim($senha_digitada));
+if ($senha_hash_digitada !== trim($row["senha"])) {
+    showAlert('Senha incorreta.');
 }
 
-// Validação crítica do congregacao_id
 if (empty($row["congregacao_id"]) || !is_numeric($row["congregacao_id"])) {
-    echo json_encode(['success' => false, 'error' => 'ID da congregação inválido para o usuário.']);
-    exit;
+    showAlert('ID da congregação inválido para o usuário.');
 }
 
 $primeiro_nome = explode(" ", $row["username"])[0];
-
-// Redirecionamento com URL correta e parâmetros codificados
 $redirect_url = sprintf(
     'dashboard.html?congregacao_id=%d&user_type=%s&primeiro_nome=%s&phone_number=%s',
     (int)$row["congregacao_id"],

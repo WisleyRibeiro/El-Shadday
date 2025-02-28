@@ -123,6 +123,37 @@
         </form>
     </div>
 </div>
+
+<div id="editUserModal" class="modal" style="display: none;"> <div class="modal-content">
+    <span class="close-modal edit-modal-close">&times;</span> <h2>Editar Usuário</h2> <form id="editUserForm"> <input type="hidden" id="editUserId" name="edit_user_id"> <div class="form-group">
+            <label for="editFullName">Nome Completo:</label>
+            <input type="text" id="editFullName" name="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="editEmail">E-mail:</label>
+            <input type="email" id="editEmail" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="editPassword">Nova Senha (deixe em branco para manter a atual):</label>
+            <input type="password" id="editPassword" name="senha"> <small>Deixe este campo em branco para manter a senha atual.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="editUserType">Tipo de Usuário:</label>
+            <input list="editUserTypes" id="editUserType" name="user_type" required>
+            <datalist id="editUserTypes"> </datalist>
+        </div>
+
+        <div class="form-group">
+            <label for="editPhone">Telefone:</label>
+            <input type="tel" id="editPhone" name="phone_number" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Salvar Alterações</button> </form>
+</div>
+
 <script src="users_system.js"></script>
 </body>
 </html>

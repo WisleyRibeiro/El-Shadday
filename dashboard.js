@@ -1,25 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
-    
-    // Captura e validação dos parâmetros
-    const primeiroNome = urlParams.get('primeiro_nome');
-    const phoneNumber = urlParams.get('phone_number');
-    const userType = urlParams.get('user_type');
-    const congregacaoId = urlParams.get('congregacao_id');
+
+    // Tenta obter congregacao_id do sessionStorage PRIMEIRO
+    let congregacaoId = sessionStorage.getItem('congregacao_id');
+
+    // Se NÃO estiver no sessionStorage, tenta obter dos parâmetros da URL
+    if (!congregacaoId) {
+        congregacaoId = urlParams.get('congregacao_id');
+    }
 
     // Validação rigorosa do congregacao_id
     if (!congregacaoId || isNaN(congregacaoId)) {
-        console.error('ID da congregação inválido ou ausente na URL.');
+        console.error('ID da congregação inválido ou ausente.'); // Mensagem de console mais genérica
         alert('Erro: ID da congregação não encontrado. Redirecionando...');
         window.location.href = 'index.html';
         return;
     }
 
-    // Salva no sessionStorage como número
-    sessionStorage.setItem('primeiroNome', primeiroNome || 'Usuário');
-    sessionStorage.setItem('phoneNumber', phoneNumber || 'Não informado');
-    sessionStorage.setItem('userType', userType || 'Não Definido');
-    sessionStorage.setItem('congregacao_id', parseInt(congregacaoId, 10));
+    // Salva no sessionStorage (SE já não estiver lá, ou atualiza se veio da URL)
+    sessionStorage.setItem('primeiroNome', urlParams.get('primeiro_nome') || sessionStorage.getItem('primeiroNome') || 'Usuário'); // Mantém sessionStorage se já existir
+    sessionStorage.setItem('phoneNumber', urlParams.get('phone_number') || sessionStorage.getItem('phoneNumber') || 'Não informado'); // Mantém sessionStorage se já existir
+    sessionStorage.setItem('userType', urlParams.get('user_type') || sessionStorage.getItem('userType') || 'Não Definido'); // Mantém sessionStorage se já existir
+    sessionStorage.setItem('congregacao_id', parseInt(congregacaoId, 10)); // Garante que seja salvo como número
 
     // Atualiza a UI
     const nomeUsuarioSpan = document.getElementById('nome-usuario');
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     phoneSpan.textContent = `Tipo: ${sessionStorage.getItem('userType')}`;
 
     // Log para depuração
-    console.log('Dados salvos:', {
+    console.log('Dados salvos (dashboard):', {
         congregacaoId: sessionStorage.getItem('congregacao_id'),
         userType: sessionStorage.getItem('userType')
     });

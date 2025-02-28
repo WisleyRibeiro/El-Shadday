@@ -19,6 +19,9 @@ try {
         }
     }
 
+    // Aplicar hash MD5 na senha
+    $senhaHash = md5($_POST['senha']);
+
     // Inserir no banco
     $stmt = $conn->prepare("
         INSERT INTO usuarios (
@@ -41,7 +44,7 @@ try {
     $stmt->execute([
         ':username' => $_POST['username'],
         ':email' => $_POST['email'],
-        ':senha' => $_POST['senha'],
+        ':senha' => $senhaHash, // Usando a senha com hash
         ':user_type' => $_POST['user_type'],
         ':phone_number' => $_POST['phone_number'],
         ':congregacao_id' => (int)$_POST['congregacao_id']
