@@ -19,7 +19,7 @@ try {
     }
 
     $stmt = $conn->prepare("
-        SELECT user_type, username, email, phone_number 
+        SELECT id, user_type, username, email, phone_number 
         FROM usuarios 
         WHERE congregacao_id = :congregacao_id 
         ORDER BY user_type, username

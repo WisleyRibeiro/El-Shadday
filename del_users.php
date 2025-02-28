@@ -16,7 +16,7 @@ try {
         $user_id = $_POST['user_id'];
 
         // Prepara e executa a query de DELETE
-        $stmt = $pdo->prepare("DELETE FROM users WHERE id = :user_id");
+        $stmt = $pdo->prepare("DELETE FROM usuarios WHERE id = :user_id");
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 
         if ($stmt->execute()) {

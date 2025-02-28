@@ -180,6 +180,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         userCard.appendChild(iconsContainer); // Adiciona container de ícones ao card
 
                         userCardsContainer.appendChild(userCard); // Adiciona card ao container de cards
+
+                        // Event listener para o ícone de deletar
+                        deleteIcon.addEventListener('click', function() {
+                            if (confirm('Tem certeza que deseja deletar o usuário ' + user.username + '?')) {
+                                deleteUser(user.id);
+                            }
+                        });
                     });
 
                     userTypeBox.appendChild(userCardsContainer); // Adiciona container de cards ao box
@@ -191,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Chama a função para buscar os usuários ao carregar a página
+    // Função para buscar os usuários ao carregar a página
     fetchUsers();
 
     function toggleSidebar() {
@@ -203,5 +210,29 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             console.error("Sidebar or Main content elements not found!");
         }
+    }
+
+    // Função para deletar usuário
+    function deleteUser(userId) {
+        fetch('del_users.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded', // Indica que os dados serão enviados como form URL-encoded
+            },
+            body: `user_id=${userId}` // Envia o ID do usuário no corpo da requisição
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message); // Exibe a mensagem de sucesso do PHP
+                fetchUsers(); // Recarrega a lista de usuários
+            } else {
+                alert('Erro ao deletar usuário: ' + data.error); // Exibe a mensagem de erro do PHP
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao deletar usuário:', error);
+            alert('Erro ao deletar usuário. Verifique o console.');
+        });
     }
 });
