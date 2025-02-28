@@ -461,6 +461,7 @@ body {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease, padding 0.3s ease; /* Transições mais suaves */
     position: relative; /* Para efeito de foco */
     overflow: hidden; /* Garante que o efeito de foco fique dentro das bordas arredondadas */
+    padding-bottom: 40px; /* Aumente o padding inferior para garantir espaço para os ícones */
 }
 
 .user-card::before {
@@ -673,6 +674,7 @@ body {
     border-bottom-color: white;
 }
 
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -746,20 +748,6 @@ body {
     .user-type-box,
     .user-type-box h3,
     .user-cards,
-    .user-card,
-    .user-card p,
-    .user-card p:first-child,
-    .widget-storage .storage-info,
-    .widget-revenue .revenue-period,
-    .widget-storage .category,
-    .widget-storage .storage-upload,
-    .widget-revenue .revenue-period,
-    .widget-sales .sales-chart,
-    .main-content .footer,
-    .user-type-boxes,
-    .user-type-box,
-    .user-type-box h3,
-    .user-cards,
     .user-card p,
     .user-card p:first-child,
     .form-group label,
@@ -803,4 +791,40 @@ body {
     .sidebar .sidebar-toggle-btn {
         transform: rotate(180deg);
     }
+
+    /* REMOVIDO BLOCO CSS DUPLICADO PARA .user-CARD, .user-ICONS, .edit-ICON, .delete-ICON DA MEDIA QUERY */
+}
+
+.user-card {
+    position: relative; /* Garantir que o posicionamento dos ícones seja relativo ao card */
+    background-color: #374151;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease, padding 0.3s ease;
+    overflow: hidden;
+    padding-bottom: 40px; /* Aumente o padding inferior para garantir espaço para os ícones */
+}
+
+.user-icons {
+    display: flex;
+    position: absolute; /* Posicionamento absoluto em relação ao .user-card */
+    bottom: 15px; /* Ajuste a distância inferior conforme necessário */
+    left: 15px; /* Alinha à esquerda */
+    right: 15px; /* Alinha à direita */
+    justify-content: space-between; /* Ícones nos cantos opostos */
+    padding-top: 10px; /* Opcional: Adicione um pouco de padding no topo se precisar */
+}
+
+.edit-icon, .delete-icon {
+    cursor: pointer;
+    font-size: 1.3em; /* Ajuste o tamanho dos ícones se precisar */
+}
+
+.edit-icon {
+    color: #a5b4fc; /* Azul Claro Suave para Editar */
+}
+
+.delete-icon {
+    color: #ec93e0; /* Vermelho Suave para Deletar */
 }

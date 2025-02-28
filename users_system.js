@@ -8,28 +8,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const closeModal = document.querySelector('.close-modal');
         const userForm = document.getElementById('userForm');
         const userTypesDatalist = document.getElementById('userTypes');
-    
+
         // Preenche o ID da congregação
         document.getElementById('congregacaoId').value = sessionStorage.getItem('congregacao_id');
-    
+
         // Abrir modal
         addUserBtn.addEventListener('click', () => {
             modal.style.display = 'block';
             loadUserTypes();
         });
-    
+
         // Fechar modal
         closeModal.addEventListener('click', () => {
             modal.style.display = 'none';
         });
-    
+
         // Fechar ao clicar fora
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
             }
         });
-    
+
         // Carregar tipos de usuário
         function loadUserTypes() {
             const congregacaoId = sessionStorage.getItem('congregacao_id');
@@ -44,19 +44,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .catch(error => console.error('Erro:', error));
         }
-    
+
         // Enviar formulário
         userForm.addEventListener('submit', function(e) {
             e.preventDefault();
-    
+
             // Validar senhas
             if (document.getElementById('password').value !== document.getElementById('confirmPassword').value) {
                 alert('As senhas não coincidem!');
                 return;
             }
-    
+
             const formData = new FormData(this);
-    
+
             fetch('add_user.php', {
                 method: 'POST',
                 body: formData
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function fetchUsers() {
         const congregacaoId = sessionStorage.getItem('congregacao_id');
         console.log('Congregacao ID:', congregacaoId);
-    
+
         fetch(`users_system.php?congregacao_id=${congregacaoId}`)
             .then(response => {
                 if (!response.ok) {
@@ -162,6 +162,22 @@ document.addEventListener('DOMContentLoaded', function() {
                         const phoneParagraph = document.createElement('p');
                         phoneParagraph.textContent = 'Telefone: ' + user.phone_number;
                         userCard.appendChild(phoneParagraph);
+
+                            // Container para os ícones
+                         const iconsContainer = document.createElement('div');
+                         iconsContainer.classList.add('user-icons');
+
+                         // Ícone de Deletar (AGORA PRIMEIRO)
+                         const deleteIcon = document.createElement('i');
+                         deleteIcon.classList.add('fas', 'fa-trash-alt', 'delete-icon');
+                         iconsContainer.appendChild(deleteIcon);
+
+                         // Ícone de Editar (AGORA SEGUNDO)
+                         const editIcon = document.createElement('i');
+                         editIcon.classList.add('fas', 'fa-edit', 'edit-icon');
+                         iconsContainer.appendChild(editIcon);
+
+                        userCard.appendChild(iconsContainer); // Adiciona container de ícones ao card
 
                         userCardsContainer.appendChild(userCard); // Adiciona card ao container de cards
                     });
