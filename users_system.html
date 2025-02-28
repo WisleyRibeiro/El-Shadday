@@ -68,8 +68,7 @@
 
         <div class="content-area">
             <div class="user-type-boxes">
-                <!-- Aqui os boxes e cards serão renderizados dinamicamente pelo JavaScript -->
-            </div>
+                </div>
         </div>
 
         <footer class="footer">
@@ -77,56 +76,92 @@
         </footer>
     </div>
 
-    <!-- Botão Flutuante -->
-<button class="floating-add-btn" id="addUserBtn">
+    <button class="floating-add-btn" id="addUserBtn">
     <i class="fas fa-plus"></i>
 </button>
 
-<!-- Modal de Cadastro -->
 <div id="addUserModal" class="modal">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
         <h2>Cadastrar Novo Usuário</h2>
         <form id="userForm">
             <input type="hidden" id="congregacaoId" name="congregacao_id">
-            
+
             <div class="form-group">
                 <label for="fullName">Nome Completo:</label>
                 <input type="text" id="fullName" name="username" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="password">Senha:</label>
                 <input type="password" id="password" name="senha" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="confirmPassword">Confirmar Senha:</label>
                 <input type="password" id="confirmPassword" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="userType">Tipo de Usuário:</label>
                 <input list="userTypes" id="userType" name="user_type" required>
                 <datalist id="userTypes">
-                    <!-- Opções serão preenchidas via JavaScript -->
-                </datalist>
+                    </datalist>
             </div>
-            
+
             <div class="form-group">
                 <label for="phone">Telefone:</label>
                 <input type="tel" id="phone" name="phone_number" required>
             </div>
-            
+
             <button type="submit" class="submit-btn">Cadastrar</button>
         </form>
     </div>
 </div>
+
+<!-- Adicione este código após o modal de cadastro -->
+<div id="editUserModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Editar Usuário</h2>
+      <form id="editUserForm">
+        <input type="hidden" id="editUserId" name="user_id">
+        <input type="hidden" id="editCongregacaoId" name="congregacao_id">
+  
+        <div class="form-group">
+          <label for="editFullName">Nome Completo:</label>
+          <input type="text" id="editFullName" name="username" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="editEmail">E-mail:</label>
+          <input type="email" id="editEmail" name="email" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="editPassword">Nova Senha (opcional):</label>
+          <input type="password" id="editPassword" name="senha">
+        </div>
+  
+        <div class="form-group">
+          <label for="editUserType">Tipo de Usuário:</label>
+          <input list="userTypes" id="editUserType" name="user_type" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="editPhone">Telefone:</label>
+          <input type="tel" id="editPhone" name="phone_number" required>
+        </div>
+  
+        <button type="submit" class="submit-btn">Salvar Alterações</button>
+      </form>
+    </div>
+  </div>
 
     <script src="users_system.js"></script>
 </body>

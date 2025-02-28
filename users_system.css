@@ -1,4 +1,4 @@
-/* users_system.css */
+/* users_system.css - Estilizado e Aprimorado */
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -7,6 +7,7 @@ body {
     margin: 0;
     overflow-x: hidden;
     display: flex;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave no body */
 }
 
 /* Sidebar */
@@ -14,16 +15,16 @@ body {
     width: 250px;
     background-color: #2d3748;
     color: #cbd5e0;
-    padding: 20px;
+    padding: 25px; /* Aumentei um pouco o padding */
     display: flex;
     flex-direction: column;
     height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 8px 0 12px rgba(0, 0, 0, 0.3); /* Sombra mais sofisticada */
     z-index: 100;
-    transition: width 0.3s ease;
+    transition: width 0.4s ease, background-color 0.3s ease, color 0.3s ease; /* Transições mais suaves */
 }
 
 .sidebar.collapsed {
@@ -32,49 +33,55 @@ body {
 
 .sidebar-header {
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 35px; /* Aumentei a margem inferior */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: margin-bottom 0.3s ease;
 }
 
 .sidebar.collapsed .sidebar-header {
     text-align: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Ajuste na margem quando colapsado */
 }
 
 .sidebar-header h3 {
     color: #cbd5e0;
     font-weight: 500;
-    font-size: 1.8em;
+    font-size: 1.9em; /* Aumentei um pouco a fonte */
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0.4s ease, font-size 0.3s ease; /* Transição na fonte */
 }
 
 .sidebar.collapsed .sidebar-header h3 {
     opacity: 0;
     visibility: hidden;
     position: absolute;
+    font-size: 1.5em; /* Fonte menor quando colapsado */
 }
 
 .sidebar-toggle-btn {
     background: none;
     border: none;
     color: #cbd5e0;
-    font-size: 1.2em;
+    font-size: 1.3em; /* Aumentei um pouco o tamanho do botão */
     cursor: pointer;
-    padding: 0;
+    padding: 8px; /* Adicionei padding ao botão */
+    border-radius: 8px; /* Arredondamento no botão toggle */
     opacity: 1;
     visibility: visible;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease, color 0.3s ease, background-color 0.3s ease; /* Transições mais suaves */
 }
 
 .sidebar-toggle-btn:hover {
     color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05); /* Feedback visual no hover */
 }
 
 .sidebar.collapsed .sidebar-toggle-btn {
@@ -88,7 +95,7 @@ body {
 }
 
 .sidebar-nav li {
-    margin-bottom: 10px;
+    margin-bottom: 12px; /* Aumentei o espaçamento */
 }
 
 .sidebar-nav a {
@@ -96,13 +103,33 @@ body {
     align-items: center;
     color: #cbd5e0;
     text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    padding: 12px 18px; /* Aumentei o padding dos links */
+    border-radius: 10px; /* Mais arredondamento nos links */
+    transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease; /* Transições mais suaves */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    position: relative; /* Para efeito de foco */
 }
+
+.sidebar-nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.6); /* Cor do foco */
+    transition: box-shadow 0.3s ease; /* Transição suave para o foco */
+}
+
+.sidebar-nav a:focus::before,
+.sidebar-nav a:hover::before,
+.sidebar-nav a.active::before {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.6); /* Efeito de foco mais evidente */
+}
+
 
 .sidebar-nav a:hover,
 .sidebar-nav a.active {
@@ -114,22 +141,23 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px; /* Aumentei um pouco o tamanho dos ícones */
-    height: 30px; /* Aumentei um pouco o tamanho dos ícones */
-    /* Degradê linear para os ícones do menu */
-    background: linear-gradient(135deg, #6366f1, #374151);
+    width: 32px; /* Aumentei um pouco mais o tamanho dos ícones */
+    height: 32px; /* Aumentei um pouco mais o tamanho dos ícones */
+    /* Degradê linear moderno para os ícones do menu */
+    background: linear-gradient(135deg, #6366f1, #5a5de4); /* Degradê mais moderno */
     color: white;
-    border-radius: 8px; /* Bordas mais arredondadas */
-    margin-right: 10px;
-    font-size: 1.2em; /* Ajustei o tamanho da fonte dos ícones */
+    border-radius: 10px; /* Mais arredondamento */
+    margin-right: 12px; /* Aumentei o espaçamento */
+    font-size: 1.3em; /* Ajustei o tamanho da fonte dos ícones */
     font-style: normal;
-    transition: margin-right 0.3s ease, background-color 0.3s ease; /* Transição na cor de fundo */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adicionando uma leve sombra */
+    transition: margin-right 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* Transições mais suaves */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25); /* Sombra mais sofisticada nos ícones */
 }
 
 .sidebar-nav a:hover .icon,
 .sidebar-nav a.active .icon {
-    background: linear-gradient(135deg, #5a5de4, #2d3748); /* Degradê mais claro no hover/ativo */
+    transform: scale(1.1); /* Efeito de "pulso" suave no hover/ativo */
+    background: linear-gradient(135deg, #5a5de4, #4f54d4); /* Degradê levemente mais claro no hover/ativo */
 }
 
 
@@ -138,10 +166,10 @@ body {
 }
 
 .sidebar-nav a span {
-    font-size: 1em;
+    font-size: 1.1em; /* Aumentei um pouco a fonte */
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.3s ease, visibility 0.3s ease, margin-left 0.3s ease;
+    transition: opacity 0.4s ease, visibility 0.4s ease, margin-left 0.3s ease, font-size 0.3s ease; /* Transições mais suaves */
     margin-left: 0;
 }
 
@@ -150,13 +178,15 @@ body {
     visibility: hidden;
     margin-left: -15px;
     position: absolute;
+    font-size: 0.9em; /* Fonte menor quando colapsado */
 }
 
 .sidebar-footer {
     margin-top: auto;
-    padding-top: 20px;
+    padding-top: 25px;
     border-top: 1px solid #4a5568;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
+    transition: padding-top 0.3s ease, padding-bottom 0.3s ease; /* Transição suave no footer */
 }
 
 .sidebar-footer a {
@@ -164,13 +194,32 @@ body {
     align-items: center;
     color: #cbd5e0;
     text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    padding: 12px 18px; /* Padding nos links do footer */
+    border-radius: 10px; /* Arredondamento no footer */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transições suaves */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    position: relative; /* Para efeito de foco */
 }
+
+.sidebar-footer a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.6); /* Cor do foco */
+    transition: box-shadow 0.3s ease; /* Transição suave para o foco */
+}
+
+.sidebar-footer a:focus::before,
+.sidebar-footer a:hover::before {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.6); /* Efeito de foco mais evidente */
+}
+
 
 .sidebar-footer a:hover {
     background-color: #374151;
@@ -181,21 +230,22 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px; /* Aumentei um pouco o tamanho dos ícones */
-    height: 30px; /* Aumentei um pouco o tamanho dos ícones */
-    /* Degradê linear para o ícone de logout */
-    background: linear-gradient(135deg, #4a5568, #2d3748); /* Degradê mais suave para logout */
+    width: 32px; /* Aumentei um pouco mais o tamanho dos ícones */
+    height: 32px; /* Aumentei um pouco mais o tamanho dos ícones */
+    /* Degradê linear moderno para o ícone de logout */
+    background: linear-gradient(135deg, #5a5de4, #4f54d4); /* Degradê mais moderno */
     color: white;
-    border-radius: 8px; /* Bordas mais arredondadas */
-    margin-right: 10px;
-    font-size: 1.2em; /* Ajustei o tamanho da fonte dos ícones */
+    border-radius: 10px; /* Mais arredondamento */
+    margin-right: 12px; /* Aumentei o espaçamento */
+    font-size: 1.3em; /* Ajustei o tamanho da fonte dos ícones */
     font-style: normal;
-    transition: margin-right 0.3s ease, background-color 0.3s ease; /* Transição na cor de fundo */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adicionando uma leve sombra */
+    transition: margin-right 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* Transições mais suaves */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25); /* Sombra mais sofisticada nos ícones */
 }
 
 .sidebar-footer a:hover .icon {
-    background: linear-gradient(135deg, #3f4a5c, #1e293b); /* Degradê mais claro no hover do logout */
+    transform: scale(1.1); /* Efeito de "pulso" suave no hover do logout */
+    background: linear-gradient(135deg, #4f54d4, #374151); /* Degradê levemente mais claro no hover do logout */
 }
 
 
@@ -204,10 +254,10 @@ body {
 }
 
 .sidebar-footer a span {
-    font-size: 1em;
+    font-size: 1.1em; /* Aumentei um pouco a fonte */
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.3s ease, visibility 0.3s ease, margin-left 0.3s ease;
+    transition: opacity 0.4s ease, visibility 0.4s ease, margin-left 0.3s ease, font-size 0.3s ease; /* Transições mais suaves */
     margin-left: 0;
 }
 
@@ -216,14 +266,15 @@ body {
     visibility: hidden;
     margin-left: -15px;
     position: absolute;
+    font-size: 0.9em; /* Fonte menor quando colapsado */
 }
 
 /* Main Content */
 .main-content {
     flex-grow: 1;
-    padding: 30px;
+    padding: 35px; /* Aumentei o padding */
     margin-left: 270px;
-    transition: margin-left 0.3s ease;
+    transition: margin-left 0.4s ease, padding 0.3s ease; /* Transições mais suaves */
 }
 
 .main-content.sidebar-collapsed {
@@ -234,58 +285,67 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #4a5568;
+    margin-bottom: 35px; /* Aumentei a margem inferior */
+    padding-bottom: 20px; /* Aumentei o padding inferior */
+    border-bottom: 2px solid #4a5568; /* Borda mais evidente */
+    transition: margin-bottom 0.3s ease, padding-bottom 0.3s ease; /* Transições suaves */
 }
 
 .header-left {
-    padding-left: 10px;
+    padding-left: 15px; /* Aumentei o padding */
 }
 
 .header-left h2 {
     color: #cbd5e0;
     margin: 0;
-    font-size: 1.8em;
+    font-size: 2em; /* Aumentei a fonte */
     font-weight: 500;
+    transition: font-size 0.3s ease; /* Transição na fonte */
 }
 
 .header-right .user-info {
     color: #cbd5e0;
-    font-size: 1em;
+    font-size: 1.1em; /* Aumentei um pouco a fonte */
+    transition: font-size 0.3s ease; /* Transição na fonte */
+    padding-right: 15px; /* Adicionei padding */
 }
 
 .widgets-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Widgets um pouco maiores */
+    gap: 35px; /* Aumentei o espaçamento */
+    margin-bottom: 35px; /* Aumentei a margem inferior */
+    transition: gap 0.3s ease, margin-bottom 0.3s ease; /* Transições suaves */
 }
 
 .widget {
     background-color: #2d3748;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    padding: 25px;
+    border-radius: 18px; /* Mais arredondamento */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Sombra mais sofisticada */
+    padding: 30px; /* Aumentei o padding */
+    transition: box-shadow 0.3s ease, padding 0.3s ease, border-radius 0.3s ease; /* Transições suaves */
 }
 
 .widget-header {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Aumentei a margem inferior */
+    transition: margin-bottom 0.3s ease; /* Transição suave */
 }
 
 .widget-header h3 {
     color: #cbd5e0;
-    font-size: 1.3em;
+    font-size: 1.4em; /* Aumentei um pouco a fonte */
     font-weight: 500;
     margin: 0;
+    transition: font-size 0.3s ease; /* Transição na fonte */
 }
 /* Widget de Storage */
 .widget-storage .storage-info {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
-    font-size: 1em;
+    margin-bottom: 18px; /* Aumentei a margem inferior */
+    font-size: 1.1em; /* Aumentei um pouco a fonte */
     color: #a3b1bd;
+    transition: margin-bottom 0.3s ease, font-size 0.3s ease; /* Transições suaves */
 }
 
 .widget-storage .storage-percent {
@@ -294,15 +354,17 @@ body {
 }
 
 .widget-storage .storage-categories {
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* Aumentei a margem inferior */
+    transition: margin-bottom 0.3s ease; /* Transição suave */
 }
 
 .widget-storage .category {
     display: flex;
     justify-content: space-between;
-    font-size: 0.9em;
+    font-size: 1em; /* Aumentei um pouco a fonte */
     color: #cbd5e0;
-    margin-bottom: 8px;
+    margin-bottom: 10px; /* Aumentei a margem inferior */
+    transition: margin-bottom 0.3s ease, font-size 0.3s ease; /* Transições suaves */
 }
 
 .widget-storage .category span {
@@ -311,239 +373,434 @@ body {
 
 .widget-storage .storage-upload {
     text-align: right;
-    font-size: 0.9em;
+    font-size: 1em; /* Aumentei um pouco a fonte */
     color: #a3b1bd;
-    margin-top: 15px;
+    margin-top: 20px; /* Aumentei a margem superior */
+    transition: margin-top 0.3s ease, font-size 0.3s ease; /* Transições suaves */
 }
 
 /* Widget de Revenue */
 .widget-revenue .revenue-value {
-    font-size: 2.5em;
+    font-size: 2.8em; /* Aumentei a fonte */
     font-weight: bold;
     color: #ffffff;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Aumentei a margem inferior */
+    transition: margin-bottom 0.3s ease, font-size 0.3s ease; /* Transições suaves */
 }
 
 .widget-revenue .revenue-period {
-    font-size: 1em;
+    font-size: 1.1em; /* Aumentei um pouco a fonte */
     color: #a3b1bd;
+    transition: font-size 0.3s ease; /* Transição na fonte */
 }
 
 /* Widget de Sales Chart */
 .widget-sales .sales-chart {
-    height: 180px;
+    height: 200px; /* Aumentei a altura do gráfico */
     background-color: #374151;
-    border-radius: 8px;
+    border-radius: 10px; /* Mais arredondamento */
     display: flex;
     align-items: center;
     justify-content: center;
     color: #a3b1bd;
-    font-size: 0.9em;
+    font-size: 1em; /* Aumentei um pouco a fonte */
+    transition: height 0.3s ease, font-size 0.3s ease, border-radius 0.3s ease; /* Transições suaves */
 }
 
 /* Footer */
 .main-content .footer {
     text-align: center;
-    padding-top: 25px;
-    margin-top: 40px;
-    border-top: 1px solid #4a5568;
+    padding-top: 30px; /* Aumentei o padding superior */
+    margin-top: 45px; /* Aumentei a margem superior */
+    border-top: 2px solid #4a5568; /* Borda mais evidente */
     color: #777;
-    font-size: 0.9em;
-    padding-bottom: 20px;
+    font-size: 1em; /* Aumentei um pouco a fonte */
+    padding-bottom: 25px; /* Aumentei o padding inferior */
+    transition: padding-top 0.3s ease, margin-top 0.3s ease, padding-bottom 0.3s ease, font-size 0.3s ease; /* Transições suaves */
 }
 /* Estilo para o container dos boxes de tipos de usuário */
 .user-type-boxes {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+    gap: 25px; /* Aumentei o espaçamento */
+    padding: 25px; /* Aumentei o padding */
+    transition: gap 0.3s ease, padding 0.3s ease; /* Transições suaves */
 }
 
 /* Estilo para cada box de tipo de usuário */
 .user-type-box {
     background-color: #2d3748;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 18px; /* Mais arredondamento */
+    padding: 25px; /* Aumentei o padding */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Sombra mais sofisticada */
+    transition: box-shadow 0.3s ease, padding 0.3s ease, border-radius 0.3s ease; /* Transições suaves */
 }
 
 /* Estilo para o título do box (tipo de usuário) */
 .user-type-box h3 {
     color: #cbd5e0;
-    font-size: 1.5em;
-    margin-bottom: 15px;
+    font-size: 1.6em; /* Aumentei a fonte */
+    margin-bottom: 20px; /* Aumentei a margem inferior */
+    transition: font-size 0.3s ease, margin-bottom 0.3s ease; /* Transições suaves */
 }
 
 /* Estilo para o container dos cards de usuário */
 .user-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cria colunas responsivas */
-    gap: 15px; /* Espaçamento entre os cards */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Cards um pouco maiores */
+    gap: 20px; /* Aumentei o espaçamento */
+    transition: gap 0.3s ease; /* Transição suave */
 }
 
 /* Estilo para cada card de usuário */
 .user-card {
     background-color: #374151;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 12px; /* Mais arredondamento */
+    padding: 20px; /* Aumentei o padding */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Sombra mais sofisticada */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease, padding 0.3s ease; /* Transições mais suaves */
+    position: relative; /* Para efeito de foco */
+    overflow: hidden; /* Garante que o efeito de foco fique dentro das bordas arredondadas */
 }
+
+.user-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(99, 102, 241, 0.15); /* Cor do efeito de foco */
+    opacity: 0;
+    border-radius: inherit;
+    transition: opacity 0.3s ease; /* Transição suave para o efeito de foco */
+    z-index: 0; /* Garante que fique atrás do conteúdo */
+}
+
+.user-card:focus::before,
+.user-card:hover::before {
+    opacity: 1; /* Mostra o efeito de foco no hover/foco */
+}
+
 
 /* Efeito de hover nos cards */
 .user-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03); /* Levemente maior no hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais evidente no hover */
 }
 
 /* Estilo para os parágrafos dentro dos cards */
 .user-card p {
-    margin: 0;
-    font-size: 1em;
+    margin: 0 0 10px 0; /* Adicionei margem inferior */
+    font-size: 1.1em; /* Aumentei um pouco a fonte */
     color: #cbd5e0;
-    line-height: 1.5;
+    line-height: 1.6; /* Espaçamento entre linhas */
+    transition: font-size 0.3s ease, margin-bottom 0.3s ease; /* Transições suaves */
+    position: relative; /* Garante que o texto fique na frente do efeito de foco */
+    z-index: 1;
 }
 
 /* Destaque para o primeiro parágrafo (nome do usuário) */
 .user-card p:first-child {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 12px; /* Aumentei a margem inferior */
+    font-size: 1.2em; /* Aumentei um pouco a fonte do nome */
+    transition: font-size 0.3s ease, margin-bottom 0.3s ease; /* Transições suaves */
 }
 
-/* Media Query for responsiveness - Example for smaller screens */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 80px;
-        overflow: hidden;
-    }
-    .sidebar-header h3,
-    .sidebar-nav a span,
-    .sidebar-footer a span {
-        opacity: 0;
-        visibility: hidden;
-    }
-    .sidebar-nav a .icon,
-    .sidebar-footer a .icon {
-        margin-right: 0;
-    }
-    .main-content {
-        margin-left: 80px;
-        padding: 20px;
-    }
-    .header {
-        margin-bottom: 20px;
-    }
-    .widgets-container {
-        gap: 15px;
-        margin-bottom: 20px;
-    }
-    .widget {
-        padding: 15px;
-    }
-    .sidebar .sidebar-toggle-btn {
-        transform: rotate(180deg);
-    }
-    /* Botão Flutuante */
+/* Botão Flutuante */
 .floating-add-btn {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 60px;
-    height: 60px;
+    width: 65px; /* Botão um pouco maior */
+    height: 65px; /* Botão um pouco maior */
     border-radius: 50%;
-    background: #6366f1;
+    background: linear-gradient(135deg, #6366f1, #5a5de4); /* Gradiente moderno */
     color: white;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra mais sofisticada */
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), background 0.3s ease, box-shadow 0.3s ease; /* Transição suave e efeito "pulso" */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 26px; /* Ícone um pouco maior */
     z-index: 999;
+    animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1); /* Animação de pulso */
 }
 
 .floating-add-btn:hover {
-    background: #5a5de4;
-    transform: scale(1.1);
+    background: linear-gradient(135deg, #5a5de4, #4f54d4); /* Gradiente levemente mais claro no hover */
+    transform: scale(1.1); /* Leve aumento no hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Sombra mais evidente no hover */
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 /* Modal */
 .modal {
-    display: none;
+    display: none; /* Hidden by default */
     position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
     overflow: auto;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.modal.show {
+    display: block; /* Make modal visible when 'show' class is added */
 }
 
 .modal-content {
     background-color: #2d3748;
     margin: 5% auto;
-    padding: 25px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 500px;
-    color: #cbd5e0;
+    padding: 30px;
+    border-radius: 15px;
+    width: 92%;
+    max-width: 550px;
+    color: #cbd5e0; /* Ensure text color is visible */
     position: relative;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(0); /* Ensure it's visible, no initial translate */
+    opacity: 1; /* Ensure it's fully opaque, no initial transparency */
+    transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.4s ease, background-color 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;
 }
+
 
 .close-modal {
     color: #aaa;
     position: absolute;
     right: 25px;
-    top: 15px;
-    font-size: 28px;
+    top: 20px;
+    font-size: 30px;
     cursor: pointer;
+    opacity: 0.8;
+    transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .close-modal:hover {
     color: #fff;
+    opacity: 1;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    transition: margin-bottom 0.3s ease;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: 500;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #4a5568;
-    border-radius: 6px;
-    background-color: #374151;
+    font-size: 1.1em;
     color: #cbd5e0;
-    font-size: 14px;
+    opacity: 0.9;
+    transition: margin-bottom 0.3s ease, font-size 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
-.form-group input:focus {
+.form-group input,
+.form-group datalist,
+.form-group select {
+    width: calc(100% - 22px);
+    padding: 12px;
+    border: 2px solid #4a5568;
+    border-radius: 8px;
+    background-color: #374151;
+    color: #cbd5e0; /* Ensure input text is visible */
+    font-size: 15px;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:focus,
+.form-group select:focus {
     outline: none;
     border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.4);
+    background-color: #3d495e;
 }
 
 .submit-btn {
     width: 100%;
-    padding: 12px;
-    background: #6366f1;
+    padding: 14px;
+    background: linear-gradient(135deg, #6366f1, #5a5de4);
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background 0.2s;
+    font-size: 17px;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .submit-btn:hover {
-    background: #5a5de4;
+    background: linear-gradient(135deg, #5a5de4, #4f54d4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
 }
+
+.submit-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-bottom-color: white;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Media Query for responsiveness - Example for smaller screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80px;
+        overflow: hidden;
+        padding: 15px; /* Padding menor em telas pequenas */
+    }
+    .sidebar-header {
+        margin-bottom: 20px; /* Margem menor em telas pequenas */
+    }
+    .sidebar-header h3,
+    .sidebar-nav a span,
+    .sidebar-footer a span {
+        opacity: 0;
+        visibility: hidden;
+        font-size: 0.8em; /* Fonte menor quando colapsado em telas pequenas */
+    }
+    .sidebar-nav a .icon,
+    .sidebar-footer a .icon {
+        margin-right: 0;
+        width: 28px; /* Ícones menores em telas pequenas */
+        height: 28px; /* Ícones menores em telas pequenas */
+        font-size: 1em; /* Fonte menor nos ícones em telas pequenas */
+    }
+    .main-content {
+        margin-left: 80px;
+        padding: 25px; /* Padding menor em telas pequenas */
+    }
+    .header {
+        margin-bottom: 25px; /* Margem menor em telas pequenas */
+        padding-bottom: 15px; /* Padding menor no header em telas pequenas */
+    }
+    .header-left h2 {
+        font-size: 1.6em; /* Fonte menor no título em telas pequenas */
+    }
+    .header-right .user-info {
+        font-size: 0.9em; /* Fonte menor no user info em telas pequenas */
+    }
+    .widgets-container {
+        gap: 25px; /* Espaçamento menor em telas pequenas */
+        margin-bottom: 25px; /* Margem menor em telas pequenas */
+    }
+    .widget {
+        padding: 20px; /* Padding menor nos widgets em telas pequenas */
+        border-radius: 15px; /* Bordas um pouco menos arredondadas em telas pequenas */
+    }
+    .widget-header {
+        margin-bottom: 18px; /* Margem menor no header do widget em telas pequenas */
+    }
+    .widget-header h3 {
+        font-size: 1.2em; /* Fonte menor no título do widget em telas pequenas */
+    }
+    .widget-storage .storage-info,
+    .widget-revenue .revenue-period,
+    .widget-storage .category,
+    .widget-storage .storage-upload,
+    .widget-revenue .revenue-period,
+    .widget-sales .sales-chart,
+    .main-content .footer,
+    .user-type-boxes,
+    .user-type-box,
+    .user-type-box h3,
+    .user-cards,
+    .user-card,
+    .user-card p,
+    .user-card p:first-child,
+    .widget-storage .storage-info,
+    .widget-revenue .revenue-period,
+    .widget-storage .category,
+    .widget-storage .storage-upload,
+    .widget-revenue .revenue-period,
+    .widget-sales .sales-chart,
+    .main-content .footer,
+    .user-type-boxes,
+    .user-type-box,
+    .user-type-box h3,
+    .user-cards,
+    .user-card p,
+    .user-card p:first-child,
+    .form-group label,
+    .form-group input,
+    .form-group select,
+    .submit-btn {
+        font-size: 0.95em; /* Reduzi a fonte em vários elementos para telas menores */
+    }
+    .floating-add-btn {
+        width: 55px; /* Botão flutuante menor em telas pequenas */
+        height: 55px; /* Botão flutuante menor em telas pequenas */
+        font-size: 22px; /* Ícone menor no botão flutuante em telas pequenas */
+        bottom: 20px; /* Ajuste a posição em telas menores */
+        right: 20px; /* Ajuste a posição em telas menores */
+    }
+    .modal-content {
+        margin-top: 10%; /* Ajuste a margem superior do modal em telas pequenas */
+        padding: 20px; /* Padding menor no modal em telas pequenas */
+        border-radius: 12px; /* Bordas um pouco menos arredondadas no modal em telas pequenas */
+    }
+    .close-modal {
+        font-size: 26px; /* "X" um pouco menor no modal em telas pequenas */
+        right: 20px; /* Ajuste a posição do "X" em telas menores */
+        top: 15px; /* Ajuste a posição do "X" em telas menores */
+    }
+    .form-group {
+        margin-bottom: 20px; /* Margem menor nos form groups em telas pequenas */
+    }
+    .form-group input,
+    .form-group datalist,
+    .form-group select {
+        padding: 10px; /* Padding menor nos inputs em telas pequenas */
+        font-size: 14px; /* Fonte menor nos inputs em telas pequenas */
+    }
+    .submit-btn {
+        padding: 12px; /* Padding menor no botão submit em telas pequenas */
+        font-size: 15px; /* Fonte menor no botão submit em telas pequenas */
+    }
+
+
+    .sidebar .sidebar-toggle-btn {
+        transform: rotate(180deg);
+    }
 }
