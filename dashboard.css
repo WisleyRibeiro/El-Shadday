@@ -114,22 +114,29 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px; /* Aumentei um pouco o tamanho dos ícones */
-    height: 30px; /* Aumentei um pouco o tamanho dos ícones */
+    width: 30px;
+    /* Aumentei um pouco o tamanho dos ícones */
+    height: 30px;
+    /* Aumentei um pouco o tamanho dos ícones */
     /* Degradê linear para os ícones do menu */
     background: linear-gradient(135deg, #6366f1, #374151);
     color: white;
-    border-radius: 8px; /* Bordas mais arredondadas */
+    border-radius: 8px;
+    /* Bordas mais arredondadas */
     margin-right: 10px;
-    font-size: 1.2em; /* Ajustei o tamanho da fonte dos ícones */
+    font-size: 1.2em;
+    /* Ajustei o tamanho da fonte dos ícones */
     font-style: normal;
-    transition: margin-right 0.3s ease, background-color 0.3s ease; /* Transição na cor de fundo */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adicionando uma leve sombra */
+    transition: margin-right 0.3s ease, background-color 0.3s ease;
+    /* Transição na cor de fundo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Adicionando uma leve sombra */
 }
 
 .sidebar-nav a:hover .icon,
 .sidebar-nav a.active .icon {
-    background: linear-gradient(135deg, #5a5de4, #2d3748); /* Degradê mais claro no hover/ativo */
+    background: linear-gradient(135deg, #5a5de4, #2d3748);
+    /* Degradê mais claro no hover/ativo */
 }
 
 
@@ -181,21 +188,29 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px; /* Aumentei um pouco o tamanho dos ícones */
-    height: 30px; /* Aumentei um pouco o tamanho dos ícones */
+    width: 30px;
+    /* Aumentei um pouco o tamanho dos ícones */
+    height: 30px;
+    /* Aumentei um pouco o tamanho dos ícones */
     /* Degradê linear para o ícone de logout */
-    background: linear-gradient(135deg, #4a5568, #2d3748); /* Degradê mais suave para logout */
+    background: linear-gradient(135deg, #4a5568, #2d3748);
+    /* Degradê mais suave para logout */
     color: white;
-    border-radius: 8px; /* Bordas mais arredondadas */
+    border-radius: 8px;
+    /* Bordas mais arredondadas */
     margin-right: 10px;
-    font-size: 1.2em; /* Ajustei o tamanho da fonte dos ícones */
+    font-size: 1.2em;
+    /* Ajustei o tamanho da fonte dos ícones */
     font-style: normal;
-    transition: margin-right 0.3s ease, background-color 0.3s ease; /* Transição na cor de fundo */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adicionando uma leve sombra */
+    transition: margin-right 0.3s ease, background-color 0.3s ease;
+    /* Transição na cor de fundo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Adicionando uma leve sombra */
 }
 
 .sidebar-footer a:hover .icon {
-    background: linear-gradient(135deg, #3f4a5c, #1e293b); /* Degradê mais claro no hover do logout */
+    background: linear-gradient(135deg, #3f4a5c, #1e293b);
+    /* Degradê mais claro no hover do logout */
 }
 
 
@@ -293,9 +308,7 @@ body {
     color: #a3b1bd;
 }
 
-.widget-storage .storage-used {
-
-}
+.widget-storage .storage-used {}
 
 .widget-storage .storage-percent {
     color: #6366f1;
@@ -367,30 +380,37 @@ body {
         width: 80px;
         overflow: hidden;
     }
+
     .sidebar-header h3,
     .sidebar-nav a span,
     .sidebar-footer a span {
         opacity: 0;
         visibility: hidden;
     }
+
     .sidebar-nav a .icon,
     .sidebar-footer a .icon {
         margin-right: 0;
     }
+
     .main-content {
         margin-left: 80px;
         padding: 20px;
     }
+
     .header {
         margin-bottom: 20px;
     }
+
     .widgets-container {
         gap: 15px;
         margin-bottom: 20px;
     }
+
     .widget {
         padding: 15px;
     }
+
     .sidebar .sidebar-toggle-btn {
         transform: rotate(180deg);
     }

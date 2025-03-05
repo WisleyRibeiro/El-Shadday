@@ -32,7 +32,6 @@ try {
         'success' => true,
         'user_types' => $userTypes
     ]);
-
 } catch (PDOException $e) {
     echo json_encode([
         'success' => false,
@@ -44,4 +43,3 @@ try {
         'error' => $e->getMessage()
     ]);
 }
-?>

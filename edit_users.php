@@ -31,7 +31,7 @@ try {
     // 2. Verificar se a nova senha é diferente da atual
     $needUpdatePassword = false;
     $newPasswordHash = null;
-    
+
     if (!empty($_POST['senha'])) {
         $newPasswordHash = md5($_POST['senha']); // Hash da nova senha
         $needUpdatePassword = ($newPasswordHash !== $currentUser['senha']); // Compara hashes
@@ -52,7 +52,7 @@ try {
 
     // 4. Preparar e executar
     $stmt = $conn->prepare($sql);
-    
+
     $params = [
         ':edit_user_id' => $_POST['edit_user_id'],
         ':username' => $_POST['username'],
@@ -68,7 +68,6 @@ try {
     $stmt->execute($params);
 
     echo json_encode(['success' => true, 'message' => 'Usuário atualizado com sucesso!']);
-
 } catch (PDOException $e) {
     echo json_encode([
         'success' => false,
@@ -80,4 +79,3 @@ try {
         'error' => $e->getMessage()
     ]);
 }
-?>

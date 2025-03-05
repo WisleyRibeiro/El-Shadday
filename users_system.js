@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const nomeUsuarioSpan = document.getElementById('nome-usuario');
     const phoneSpan = document.getElementById('user-phone');
 
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Enviar formulário de cadastro
-    userForm.addEventListener('submit', function(e) {
+    userForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
         // Validar senhas no cadastro
@@ -74,21 +74,21 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Usuário cadastrado com sucesso!');
-                addUserModal.style.display = 'none'; // Fechar modal de CADASTRO
-                this.reset();
-                fetchUsers(); // Recarrega a lista
-            } else {
-                alert('Erro: ' + data.error);
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            alert('Erro ao cadastrar usuário');
-        });
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Usuário cadastrado com sucesso!');
+                    addUserModal.style.display = 'none'; // Fechar modal de CADASTRO
+                    this.reset();
+                    fetchUsers(); // Recarrega a lista
+                } else {
+                    alert('Erro: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao cadastrar usuário');
+            });
     });
 
 
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Enviar formulário de edição
-    editUserForm.addEventListener('submit', function(e) {
+    editUserForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
         const formData = new FormData(this);
@@ -116,20 +116,20 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Usuário atualizado com sucesso!');
-                editUserModal.style.display = 'none'; // Fechar modal de EDIÇÃO
-                fetchUsers(); // Recarrega a lista
-            } else {
-                alert('Erro ao atualizar usuário: ' + data.error);
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            alert('Erro ao atualizar usuário');
-        });
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Usuário atualizado com sucesso!');
+                    editUserModal.style.display = 'none'; // Fechar modal de EDIÇÃO
+                    fetchUsers(); // Recarrega a lista
+                } else {
+                    alert('Erro ao atualizar usuário: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao atualizar usuário');
+            });
     });
 
 
@@ -234,14 +234,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
                         // *** EVENT LISTENER PARA O ÍCONE DE DELETAR (JÁ EXISTENTE - MANTIDO) ***
-                        deleteIcon.addEventListener('click', function() {
+                        deleteIcon.addEventListener('click', function () {
                             if (confirm('Tem certeza que deseja deletar o usuário ' + user.username + '?')) {
                                 deleteUser(user.id);
                             }
                         });
 
                         // *** EVENT LISTENER PARA O ÍCONE DE EDITAR (NOVO) ***
-                        editIcon.addEventListener('click', function() {
+                        editIcon.addEventListener('click', function () {
                             openEditModal(user); // Chama função para abrir modal de edição e preencher dados
                         });
 
@@ -282,19 +282,19 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: `user_id=${userId}` // Envia o ID do usuário no corpo da requisição
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert(data.message); // Exibe a mensagem de sucesso do PHP
-                fetchUsers(); // Recarrega a lista de usuários
-            } else {
-                alert('Erro ao deletar usuário: ' + data.error); // Exibe a mensagem de erro do PHP
-            }
-        })
-        .catch(error => {
-            console.error('Erro ao deletar usuário:', error);
-            alert('Erro ao deletar usuário. Verifique o console.');
-        });
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message); // Exibe a mensagem de sucesso do PHP
+                    fetchUsers(); // Recarrega a lista de usuários
+                } else {
+                    alert('Erro ao deletar usuário: ' + data.error); // Exibe a mensagem de erro do PHP
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao deletar usuário:', error);
+                alert('Erro ao deletar usuário. Verifique o console.');
+            });
     }
 
 

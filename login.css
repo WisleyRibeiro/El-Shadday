@@ -1,65 +1,86 @@
 /* login.css */
 
 body {
-    font-family: 'Roboto', sans-serif; /* Modern font, similar to the UI image */
-    background-color: #1e293b; /* Dark background color, like the sidebar */
-    color: #f8fafc; /* Light text color for contrast */
+    font-family: 'Roboto', sans-serif;
+    /* Modern font, similar to the UI image */
+    background-color: #1e293b;
+    /* Dark background color, like the sidebar */
+    color: #f8fafc;
+    /* Light text color for contrast */
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
-    padding: 20px; /* Add some padding around the body */
+    padding: 20px;
+    /* Add some padding around the body */
 }
 
 .login-container {
-    background-color: #2d3748; /* Slightly lighter container background */
+    background-color: #2d3748;
+    /* Slightly lighter container background */
     padding: 50px;
-    border-radius: 15px; /* Rounded corners for the container */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
-    width: 400px; /* Adjust width as needed */
+    border-radius: 15px;
+    /* Rounded corners for the container */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    /* Soft shadow for depth */
+    width: 400px;
+    /* Adjust width as needed */
     text-align: center;
 }
 
 .login-container h2 {
-    color: #cbd5e0; /* Lighter heading color */
+    color: #cbd5e0;
+    /* Lighter heading color */
     margin-bottom: 30px;
-    font-weight: 500; /* Medium font weight for heading */
+    font-weight: 500;
+    /* Medium font weight for heading */
     font-size: 2em;
 }
 
 .form-group {
     margin-bottom: 25px;
-    text-align: left; /* Align form elements to the left */
+    text-align: left;
+    /* Align form elements to the left */
 }
 
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: #cbd5e0; /* Light label color */
-    font-weight: 400; /* Regular font weight for labels */
+    color: #cbd5e0;
+    /* Light label color */
+    font-weight: 400;
+    /* Regular font weight for labels */
     font-size: 0.9em;
 }
 
 .form-group input {
     width: calc(100% - 30px);
     padding: 14px 15px;
-    border: 1px solid #4a5568; /* Darker border for inputs */
-    border-radius: 8px; /* Rounded corners for inputs */
-    background-color: #1e293b; /* Match input background to body for a subtle effect */
-    color: #f8fafc; /* Light text color for input */
+    border: 1px solid #4a5568;
+    /* Darker border for inputs */
+    border-radius: 8px;
+    /* Rounded corners for inputs */
+    background-color: #1e293b;
+    /* Match input background to body for a subtle effect */
+    color: #f8fafc;
+    /* Light text color for input */
     font-size: 16px;
     outline: none;
-    transition: border-color 0.3s ease; /* Smooth border transition */
+    transition: border-color 0.3s ease;
+    /* Smooth border transition */
 }
 
 .form-group input::placeholder {
-    color: #a3b1bd; /* Placeholder color */
-    opacity: 0.8; /* Slightly reduce placeholder opacity */
+    color: #a3b1bd;
+    /* Placeholder color */
+    opacity: 0.8;
+    /* Slightly reduce placeholder opacity */
 }
 
 .form-group input:focus {
-    border-color: #64748b; /* Slightly lighter border on focus */
+    border-color: #64748b;
+    /* Slightly lighter border on focus */
 }
 
 
@@ -68,22 +89,30 @@ body {
     width: 100%;
     padding: 14px 15px;
     border: none;
-    border-radius: 8px; /* Rounded corners for button */
-    background-color: #6366f1; /* Vibrant blue/purple accent color from the UI */
-    color: #ffffff; /* White button text */
+    border-radius: 8px;
+    /* Rounded corners for button */
+    background-color: #6366f1;
+    /* Vibrant blue/purple accent color from the UI */
+    color: #ffffff;
+    /* White button text */
     font-size: 17px;
-    font-weight: 500; /* Medium font weight for button text */
+    font-weight: 500;
+    /* Medium font weight for button text */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Button transitions */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Button transitions */
 }
 
 .login-button:hover {
-    background-color: #4f46e5; /* Darker hover color */
+    background-color: #4f46e5;
+    /* Darker hover color */
 }
 
 .login-button:active {
-    background-color: #6366f1; /* Slightly darker active color */
-    transform: scale(0.98); /* Subtle scale down on click */
+    background-color: #6366f1;
+    /* Slightly darker active color */
+    transform: scale(0.98);
+    /* Subtle scale down on click */
 }
 
 .footer {

@@ -7,7 +7,8 @@ body {
     margin: 0;
     overflow-x: hidden;
     display: flex;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave no body */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Transição suave no body */
 }
 
 /* Sidebar - Mantido igual ao dashboard.css */
@@ -221,20 +222,24 @@ body {
         width: 80px;
         overflow: hidden;
     }
+
     .sidebar-header h3,
     .sidebar-nav a span,
     .sidebar-footer a span {
         opacity: 0;
         visibility: hidden;
     }
+
     .sidebar-nav a .icon,
     .sidebar-footer a .icon {
         margin-right: 0;
     }
+
     .main-content {
         margin-left: 80px;
         padding: 20px;
     }
+
     .sidebar .sidebar-toggle-btn {
         transform: rotate(180deg);
     }
@@ -243,9 +248,11 @@ body {
 /* Main Content */
 .main-content {
     flex-grow: 1;
-    padding: 35px; /* Aumentei o padding */
+    padding: 35px;
+    /* Aumentei o padding */
     margin-left: 270px;
-    transition: margin-left 0.4s ease, padding 0.3s ease; /* Transições mais suaves */
+    transition: margin-left 0.4s ease, padding 0.3s ease;
+    /* Transições mais suaves */
 }
 
 .main-content.sidebar-collapsed {
@@ -256,67 +263,93 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 35px; /* Aumentei a margem inferior */
-    padding-bottom: 20px; /* Aumentei o padding inferior */
-    border-bottom: 2px solid #4a5568; /* Borda mais evidente */
-    transition: margin-bottom 0.3s ease, padding-bottom 0.3s ease; /* Transições suaves */
+    margin-bottom: 35px;
+    /* Aumentei a margem inferior */
+    padding-bottom: 20px;
+    /* Aumentei o padding inferior */
+    border-bottom: 2px solid #4a5568;
+    /* Borda mais evidente */
+    transition: margin-bottom 0.3s ease, padding-bottom 0.3s ease;
+    /* Transições suaves */
 }
 
 .header-left {
-    padding-left: 15px; /* Aumentei o padding */
+    padding-left: 15px;
+    /* Aumentei o padding */
 }
 
 .header-left h2 {
     color: #cbd5e0;
     margin: 0;
-    font-size: 2em; /* Aumentei a fonte */
+    font-size: 2em;
+    /* Aumentei a fonte */
     font-weight: 500;
-    transition: font-size 0.3s ease; /* Transição na fonte */
+    transition: font-size 0.3s ease;
+    /* Transição na fonte */
 }
 
 .header-right .user-info {
     color: #cbd5e0;
-    font-size: 1.1em; /* Aumentei um pouco a fonte */
-    transition: font-size 0.3s ease; /* Transição na fonte */
-    padding-right: 15px; /* Adicionei padding */
+    font-size: 1.1em;
+    /* Aumentei um pouco a fonte */
+    transition: font-size 0.3s ease;
+    /* Transição na fonte */
+    padding-right: 15px;
+    /* Adicionei padding */
 }
 
 .widgets-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Widgets um pouco maiores */
-    gap: 35px; /* Aumentei o espaçamento */
-    margin-bottom: 35px; /* Aumentei a margem inferior */
-    transition: gap 0.3s ease, margin-bottom 0.3s ease; /* Transições suaves */
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    /* Widgets um pouco maiores */
+    gap: 35px;
+    /* Aumentei o espaçamento */
+    margin-bottom: 35px;
+    /* Aumentei a margem inferior */
+    transition: gap 0.3s ease, margin-bottom 0.3s ease;
+    /* Transições suaves */
 }
 
 .widget {
     background-color: #2d3748;
-    border-radius: 18px; /* Mais arredondamento */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Sombra mais sofisticada */
-    padding: 30px; /* Aumentei o padding */
-    transition: box-shadow 0.3s ease, padding 0.3s ease, border-radius 0.3s ease; /* Transições suaves */
+    border-radius: 18px;
+    /* Mais arredondamento */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    /* Sombra mais sofisticada */
+    padding: 30px;
+    /* Aumentei o padding */
+    transition: box-shadow 0.3s ease, padding 0.3s ease, border-radius 0.3s ease;
+    /* Transições suaves */
 }
 
 .widget-header {
-    margin-bottom: 25px; /* Aumentei a margem inferior */
-    transition: margin-bottom 0.3s ease; /* Transição suave */
+    margin-bottom: 25px;
+    /* Aumentei a margem inferior */
+    transition: margin-bottom 0.3s ease;
+    /* Transição suave */
 }
 
 .widget-header h3 {
     color: #cbd5e0;
-    font-size: 1.4em; /* Aumentei um pouco a fonte */
+    font-size: 1.4em;
+    /* Aumentei um pouco a fonte */
     font-weight: 500;
     margin: 0;
-    transition: font-size 0.3s ease; /* Transição na fonte */
+    transition: font-size 0.3s ease;
+    /* Transição na fonte */
 }
+
 /* Widget de Storage */
 .widget-storage .storage-info {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 18px; /* Aumentei a margem inferior */
-    font-size: 1.1em; /* Aumentei um pouco a fonte */
+    margin-bottom: 18px;
+    /* Aumentei a margem inferior */
+    font-size: 1.1em;
+    /* Aumentei um pouco a fonte */
     color: #a3b1bd;
-    transition: margin-bottom 0.3s ease, font-size 0.3s ease; /* Transições suaves */
+    transition: margin-bottom 0.3s ease, font-size 0.3s ease;
+    /* Transições suaves */
 }
 
 .widget-storage .storage-percent {
@@ -325,17 +358,22 @@ body {
 }
 
 .widget-storage .storage-categories {
-    margin-bottom: 25px; /* Aumentei a margem inferior */
-    transition: margin-bottom 0.3s ease; /* Transição suave */
+    margin-bottom: 25px;
+    /* Aumentei a margem inferior */
+    transition: margin-bottom 0.3s ease;
+    /* Transição suave */
 }
 
 .widget-storage .category {
     display: flex;
     justify-content: space-between;
-    font-size: 1em; /* Aumentei um pouco a fonte */
+    font-size: 1em;
+    /* Aumentei um pouco a fonte */
     color: #cbd5e0;
-    margin-bottom: 10px; /* Aumentei a margem inferior */
-    transition: margin-bottom 0.3s ease, font-size 0.3s ease; /* Transições suaves */
+    margin-bottom: 10px;
+    /* Aumentei a margem inferior */
+    transition: margin-bottom 0.3s ease, font-size 0.3s ease;
+    /* Transições suaves */
 }
 
 .widget-storage .category span {
@@ -344,95 +382,134 @@ body {
 
 .widget-storage .storage-upload {
     text-align: right;
-    font-size: 1em; /* Aumentei um pouco a fonte */
+    font-size: 1em;
+    /* Aumentei um pouco a fonte */
     color: #a3b1bd;
-    margin-top: 20px; /* Aumentei a margem superior */
-    transition: margin-top 0.3s ease, font-size 0.3s ease; /* Transições suaves */
+    margin-top: 20px;
+    /* Aumentei a margem superior */
+    transition: margin-top 0.3s ease, font-size 0.3s ease;
+    /* Transições suaves */
 }
 
 /* Widget de Revenue */
 .widget-revenue .revenue-value {
-    font-size: 2.8em; /* Aumentei a fonte */
+    font-size: 2.8em;
+    /* Aumentei a fonte */
     font-weight: bold;
     color: #ffffff;
-    margin-bottom: 15px; /* Aumentei a margem inferior */
-    transition: margin-bottom 0.3s ease, font-size 0.3s ease; /* Transições suaves */
+    margin-bottom: 15px;
+    /* Aumentei a margem inferior */
+    transition: margin-bottom 0.3s ease, font-size 0.3s ease;
+    /* Transições suaves */
 }
 
 .widget-revenue .revenue-period {
-    font-size: 1.1em; /* Aumentei um pouco a fonte */
+    font-size: 1.1em;
+    /* Aumentei um pouco a fonte */
     color: #a3b1bd;
-    transition: font-size 0.3s ease; /* Transição na fonte */
+    transition: font-size 0.3s ease;
+    /* Transição na fonte */
 }
 
 /* Widget de Sales Chart */
 .widget-sales .sales-chart {
-    height: 200px; /* Aumentei a altura do gráfico */
+    height: 200px;
+    /* Aumentei a altura do gráfico */
     background-color: #374151;
-    border-radius: 10px; /* Mais arredondamento */
+    border-radius: 10px;
+    /* Mais arredondamento */
     display: flex;
     align-items: center;
     justify-content: center;
     color: #a3b1bd;
-    font-size: 1em; /* Aumentei um pouco a fonte */
-    transition: height 0.3s ease, font-size 0.3s ease, border-radius 0.3s ease; /* Transições suaves */
+    font-size: 1em;
+    /* Aumentei um pouco a fonte */
+    transition: height 0.3s ease, font-size 0.3s ease, border-radius 0.3s ease;
+    /* Transições suaves */
 }
 
 /* Footer */
 .main-content .footer {
     text-align: center;
-    padding-top: 30px; /* Aumentei o padding superior */
-    margin-top: 45px; /* Aumentei a margem superior */
-    border-top: 2px solid #4a5568; /* Borda mais evidente */
+    padding-top: 30px;
+    /* Aumentei o padding superior */
+    margin-top: 45px;
+    /* Aumentei a margem superior */
+    border-top: 2px solid #4a5568;
+    /* Borda mais evidente */
     color: #777;
-    font-size: 1em; /* Aumentei um pouco a fonte */
-    padding-bottom: 25px; /* Aumentei o padding inferior */
-    transition: padding-top 0.3s ease, margin-top 0.3s ease, padding-bottom 0.3s ease, font-size 0.3s ease; /* Transições suaves */
+    font-size: 1em;
+    /* Aumentei um pouco a fonte */
+    padding-bottom: 25px;
+    /* Aumentei o padding inferior */
+    transition: padding-top 0.3s ease, margin-top 0.3s ease, padding-bottom 0.3s ease, font-size 0.3s ease;
+    /* Transições suaves */
 }
+
 /* Estilo para o container dos boxes de tipos de usuário */
 .user-type-boxes {
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Aumentei o espaçamento */
-    padding: 25px; /* Aumentei o padding */
-    transition: gap 0.3s ease, padding 0.3s ease; /* Transições suaves */
+    gap: 25px;
+    /* Aumentei o espaçamento */
+    padding: 25px;
+    /* Aumentei o padding */
+    transition: gap 0.3s ease, padding 0.3s ease;
+    /* Transições suaves */
 }
 
 /* Estilo para cada box de tipo de usuário */
 .user-type-box {
     background-color: #2d3748;
-    border-radius: 18px; /* Mais arredondamento */
-    padding: 25px; /* Aumentei o padding */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Sombra mais sofisticada */
-    transition: box-shadow 0.3s ease, padding 0.3s ease, border-radius 0.3s ease; /* Transições suaves */
+    border-radius: 18px;
+    /* Mais arredondamento */
+    padding: 25px;
+    /* Aumentei o padding */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    /* Sombra mais sofisticada */
+    transition: box-shadow 0.3s ease, padding 0.3s ease, border-radius 0.3s ease;
+    /* Transições suaves */
 }
 
 /* Estilo para o título do box (tipo de usuário) */
 .user-type-box h3 {
     color: #cbd5e0;
-    font-size: 1.6em; /* Aumentei a fonte */
-    margin-bottom: 20px; /* Aumentei a margem inferior */
-    transition: font-size 0.3s ease, margin-bottom 0.3s ease; /* Transições suaves */
+    font-size: 1.6em;
+    /* Aumentei a fonte */
+    margin-bottom: 20px;
+    /* Aumentei a margem inferior */
+    transition: font-size 0.3s ease, margin-bottom 0.3s ease;
+    /* Transições suaves */
 }
 
 /* Estilo para o container dos cards de usuário */
 .user-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Cards um pouco maiores */
-    gap: 20px; /* Aumentei o espaçamento */
-    transition: gap 0.3s ease; /* Transição suave */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Cards um pouco maiores */
+    gap: 20px;
+    /* Aumentei o espaçamento */
+    transition: gap 0.3s ease;
+    /* Transição suave */
 }
 
 /* Estilo para cada card de usuário */
 .user-card {
     background-color: #374151;
-    border-radius: 12px; /* Mais arredondamento */
-    padding: 20px; /* Aumentei o padding */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Sombra mais sofisticada */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease, padding 0.3s ease; /* Transições mais suaves */
-    position: relative; /* Para efeito de foco */
-    overflow: hidden; /* Garante que o efeito de foco fique dentro das bordas arredondadas */
-    padding-bottom: 40px; /* Aumente o padding inferior para garantir espaço para os ícones */
+    border-radius: 12px;
+    /* Mais arredondamento */
+    padding: 20px;
+    /* Aumentei o padding */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    /* Sombra mais sofisticada */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease, padding 0.3s ease;
+    /* Transições mais suaves */
+    position: relative;
+    /* Para efeito de foco */
+    overflow: hidden;
+    /* Garante que o efeito de foco fique dentro das bordas arredondadas */
+    padding-bottom: 40px;
+    /* Aumente o padding inferior para garantir espaço para os ícones */
 }
 
 .user-card::before {
@@ -442,42 +519,56 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(99, 102, 241, 0.15); /* Cor do efeito de foco */
+    background: rgba(99, 102, 241, 0.15);
+    /* Cor do efeito de foco */
     opacity: 0;
     border-radius: inherit;
-    transition: opacity 0.3s ease; /* Transição suave para o efeito de foco */
-    z-index: 0; /* Garante que fique atrás do conteúdo */
+    transition: opacity 0.3s ease;
+    /* Transição suave para o efeito de foco */
+    z-index: 0;
+    /* Garante que fique atrás do conteúdo */
 }
 
 .user-card:focus::before,
 .user-card:hover::before {
-    opacity: 1; /* Mostra o efeito de foco no hover/foco */
+    opacity: 1;
+    /* Mostra o efeito de foco no hover/foco */
 }
 
 
 /* Efeito de hover nos cards */
 .user-card:hover {
-    transform: scale(1.03); /* Levemente maior no hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra mais evidente no hover */
+    transform: scale(1.03);
+    /* Levemente maior no hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    /* Sombra mais evidente no hover */
 }
 
 /* Estilo para os parágrafos dentro dos cards */
 .user-card p {
-    margin: 0 0 10px 0; /* Adicionei margem inferior */
-    font-size: 1.1em; /* Aumentei um pouco a fonte */
+    margin: 0 0 10px 0;
+    /* Adicionei margem inferior */
+    font-size: 1.1em;
+    /* Aumentei um pouco a fonte */
     color: #cbd5e0;
-    line-height: 1.6; /* Espaçamento entre linhas */
-    transition: font-size 0.3s ease, margin-bottom 0.3s ease; /* Transições suaves */
-    position: relative; /* Garante que o texto fique na frente do efeito de foco */
+    line-height: 1.6;
+    /* Espaçamento entre linhas */
+    transition: font-size 0.3s ease, margin-bottom 0.3s ease;
+    /* Transições suaves */
+    position: relative;
+    /* Garante que o texto fique na frente do efeito de foco */
     z-index: 1;
 }
 
 /* Destaque para o primeiro parágrafo (nome do usuário) */
 .user-card p:first-child {
     font-weight: bold;
-    margin-bottom: 12px; /* Aumentei a margem inferior */
-    font-size: 1.2em; /* Aumentei um pouco a fonte do nome */
-    transition: font-size 0.3s ease, margin-bottom 0.3s ease; /* Transições suaves */
+    margin-bottom: 12px;
+    /* Aumentei a margem inferior */
+    font-size: 1.2em;
+    /* Aumentei um pouco a fonte do nome */
+    transition: font-size 0.3s ease, margin-bottom 0.3s ease;
+    /* Transições suaves */
 }
 
 /* Botão Flutuante */
@@ -485,43 +576,57 @@ body {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 65px; /* Botão um pouco maior */
-    height: 65px; /* Botão um pouco maior */
+    width: 65px;
+    /* Botão um pouco maior */
+    height: 65px;
+    /* Botão um pouco maior */
     border-radius: 50%;
-    background: linear-gradient(135deg, #6366f1, #5a5de4); /* Gradiente moderno */
+    background: linear-gradient(135deg, #6366f1, #5a5de4);
+    /* Gradiente moderno */
     color: white;
     border: none;
     cursor: pointer;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra mais sofisticada */
-    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), background 0.3s ease, box-shadow 0.3s ease; /* Transição suave e efeito "pulso" */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    /* Sombra mais sofisticada */
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), background 0.3s ease, box-shadow 0.3s ease;
+    /* Transição suave e efeito "pulso" */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 26px; /* Ícone um pouco maior */
+    font-size: 26px;
+    /* Ícone um pouco maior */
     z-index: 999;
-    animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1); /* Animação de pulso */
+    animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+    /* Animação de pulso */
 }
 
 .floating-add-btn:hover {
-    background: linear-gradient(135deg, #5a5de4, #4f54d4); /* Gradiente levemente mais claro no hover */
-    transform: scale(1.1); /* Leve aumento no hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Sombra mais evidente no hover */
+    background: linear-gradient(135deg, #5a5de4, #4f54d4);
+    /* Gradiente levemente mais claro no hover */
+    transform: scale(1.1);
+    /* Leve aumento no hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    /* Sombra mais evidente no hover */
 }
 
 @keyframes pulse {
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.08);
     }
+
     100% {
         transform: scale(1);
     }
 }
+
 /* Modal */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -535,7 +640,8 @@ body {
 }
 
 .modal.show {
-    display: block; /* Make modal visible when 'show' class is added */
+    display: block;
+    /* Make modal visible when 'show' class is added */
 }
 
 .modal-content {
@@ -545,11 +651,14 @@ body {
     border-radius: 15px;
     width: 92%;
     max-width: 550px;
-    color: #cbd5e0; /* Ensure text color is visible */
+    color: #cbd5e0;
+    /* Ensure text color is visible */
     position: relative;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-    transform: translateY(0); /* Ensure it's visible, no initial translate */
-    opacity: 1; /* Ensure it's fully opaque, no initial transparency */
+    transform: translateY(0);
+    /* Ensure it's visible, no initial translate */
+    opacity: 1;
+    /* Ensure it's fully opaque, no initial transparency */
     transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.4s ease, background-color 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;
 }
 
@@ -593,7 +702,8 @@ body {
     border: 2px solid #4a5568;
     border-radius: 8px;
     background-color: #374151;
-    color: #cbd5e0; /* Ensure input text is visible */
+    color: #cbd5e0;
+    /* Ensure input text is visible */
     font-size: 15px;
     transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -650,6 +760,7 @@ body {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -661,53 +772,82 @@ body {
     .sidebar {
         width: 80px;
         overflow: hidden;
-        padding: 15px; /* Padding menor em telas pequenas */
+        padding: 15px;
+        /* Padding menor em telas pequenas */
     }
+
     .sidebar-header {
-        margin-bottom: 20px; /* Margem menor em telas pequenas */
+        margin-bottom: 20px;
+        /* Margem menor em telas pequenas */
     }
+
     .sidebar-header h3,
     .sidebar-nav a span,
     .sidebar-footer a span {
         opacity: 0;
         visibility: hidden;
-        font-size: 0.8em; /* Fonte menor quando colapsado em telas pequenas */
+        font-size: 0.8em;
+        /* Fonte menor quando colapsado em telas pequenas */
     }
+
     .sidebar-nav a .icon,
     .sidebar-footer a .icon {
         margin-right: 0;
-        width: 28px; /* Ícones menores em telas pequenas */
-        height: 28px; /* Ícones menores em telas pequenas */
-        font-size: 1em; /* Fonte menor nos ícones em telas pequenas */
+        width: 28px;
+        /* Ícones menores em telas pequenas */
+        height: 28px;
+        /* Ícones menores em telas pequenas */
+        font-size: 1em;
+        /* Fonte menor nos ícones em telas pequenas */
     }
+
     .main-content {
         margin-left: 80px;
-        padding: 25px; /* Padding menor em telas pequenas */
+        padding: 25px;
+        /* Padding menor em telas pequenas */
     }
+
     .header {
-        margin-bottom: 25px; /* Margem menor em telas pequenas */
-        padding-bottom: 15px; /* Padding menor no header em telas pequenas */
+        margin-bottom: 25px;
+        /* Margem menor em telas pequenas */
+        padding-bottom: 15px;
+        /* Padding menor no header em telas pequenas */
     }
+
     .header-left h2 {
-        font-size: 1.6em; /* Fonte menor no título em telas pequenas */
+        font-size: 1.6em;
+        /* Fonte menor no título em telas pequenas */
     }
+
     .header-right .user-info {
-        font-size: 0.9em; /* Fonte menor no user info em telas pequenas */
+        font-size: 0.9em;
+        /* Fonte menor no user info em telas pequenas */
     }
+
     .widgets-container {
-        gap: 25px; /* Espaçamento menor em telas pequenas */
-        margin-bottom: 25px; /* Margem menor em telas pequenas */
+        gap: 25px;
+        /* Espaçamento menor em telas pequenas */
+        margin-bottom: 25px;
+        /* Margem menor em telas pequenas */
     }
+
     .widget {
-        padding: 20px; /* Padding menor nos widgets em telas pequenas */
-        border-radius: 15px; /* Bordas um pouco menos arredondadas em telas pequenas */
+        padding: 20px;
+        /* Padding menor nos widgets em telas pequenas */
+        border-radius: 15px;
+        /* Bordas um pouco menos arredondadas em telas pequenas */
     }
+
     .widget-header {
-        margin-bottom: 18px; /* Margem menor no header do widget em telas pequenas */
+        margin-bottom: 18px;
+        /* Margem menor no header do widget em telas pequenas */
     }
+
     .widget-header h3 {
-        font-size: 1.2em; /* Fonte menor no título do widget em telas pequenas */
+        font-size: 1.2em;
+        /* Fonte menor no título do widget em telas pequenas */
     }
+
     .widget-storage .storage-info,
     .widget-revenue .revenue-period,
     .widget-storage .category,
@@ -725,37 +865,60 @@ body {
     .form-group input,
     .form-group select,
     .submit-btn {
-        font-size: 0.95em; /* Reduzi a fonte em vários elementos para telas menores */
+        font-size: 0.95em;
+        /* Reduzi a fonte em vários elementos para telas menores */
     }
+
     .floating-add-btn {
-        width: 55px; /* Botão flutuante menor em telas pequenas */
-        height: 55px; /* Botão flutuante menor em telas pequenas */
-        font-size: 22px; /* Ícone menor no botão flutuante em telas pequenas */
-        bottom: 20px; /* Ajuste a posição em telas menores */
-        right: 20px; /* Ajuste a posição em telas menores */
+        width: 55px;
+        /* Botão flutuante menor em telas pequenas */
+        height: 55px;
+        /* Botão flutuante menor em telas pequenas */
+        font-size: 22px;
+        /* Ícone menor no botão flutuante em telas pequenas */
+        bottom: 20px;
+        /* Ajuste a posição em telas menores */
+        right: 20px;
+        /* Ajuste a posição em telas menores */
     }
+
     .modal-content {
-        margin-top: 10%; /* Ajuste a margem superior do modal em telas pequenas */
-        padding: 20px; /* Padding menor no modal em telas pequenas */
-        border-radius: 12px; /* Bordas um pouco menos arredondadas no modal em telas pequenas */
+        margin-top: 10%;
+        /* Ajuste a margem superior do modal em telas pequenas */
+        padding: 20px;
+        /* Padding menor no modal em telas pequenas */
+        border-radius: 12px;
+        /* Bordas um pouco menos arredondadas no modal em telas pequenas */
     }
+
     .close-modal {
-        font-size: 26px; /* "X" um pouco menor no modal em telas pequenas */
-        right: 20px; /* Ajuste a posição do "X" em telas menores */
-        top: 15px; /* Ajuste a posição do "X" em telas menores */
+        font-size: 26px;
+        /* "X" um pouco menor no modal em telas pequenas */
+        right: 20px;
+        /* Ajuste a posição do "X" em telas menores */
+        top: 15px;
+        /* Ajuste a posição do "X" em telas menores */
     }
+
     .form-group {
-        margin-bottom: 20px; /* Margem menor nos form groups em telas pequenas */
+        margin-bottom: 20px;
+        /* Margem menor nos form groups em telas pequenas */
     }
+
     .form-group input,
     .form-group datalist,
     .form-group select {
-        padding: 10px; /* Padding menor nos inputs em telas pequenas */
-        font-size: 14px; /* Fonte menor nos inputs em telas pequenas */
+        padding: 10px;
+        /* Padding menor nos inputs em telas pequenas */
+        font-size: 14px;
+        /* Fonte menor nos inputs em telas pequenas */
     }
+
     .submit-btn {
-        padding: 12px; /* Padding menor no botão submit em telas pequenas */
-        font-size: 15px; /* Fonte menor no botão submit em telas pequenas */
+        padding: 12px;
+        /* Padding menor no botão submit em telas pequenas */
+        font-size: 15px;
+        /* Fonte menor no botão submit em telas pequenas */
     }
 
 
@@ -767,35 +930,47 @@ body {
 }
 
 .user-card {
-    position: relative; /* Garantir que o posicionamento dos ícones seja relativo ao card */
+    position: relative;
+    /* Garantir que o posicionamento dos ícones seja relativo ao card */
     background-color: #374151;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease, padding 0.3s ease;
     overflow: hidden;
-    padding-bottom: 40px; /* Aumente o padding inferior para garantir espaço para os ícones */
+    padding-bottom: 40px;
+    /* Aumente o padding inferior para garantir espaço para os ícones */
 }
 
 .user-icons {
     display: flex;
-    position: absolute; /* Posicionamento absoluto em relação ao .user-card */
-    bottom: 15px; /* Ajuste a distância inferior conforme necessário */
-    left: 15px; /* Alinha à esquerda */
-    right: 15px; /* Alinha à direita */
-    justify-content: space-between; /* Ícones nos cantos opostos */
-    padding-top: 10px; /* Opcional: Adicione um pouco de padding no topo se precisar */
+    position: absolute;
+    /* Posicionamento absoluto em relação ao .user-card */
+    bottom: 15px;
+    /* Ajuste a distância inferior conforme necessário */
+    left: 15px;
+    /* Alinha à esquerda */
+    right: 15px;
+    /* Alinha à direita */
+    justify-content: space-between;
+    /* Ícones nos cantos opostos */
+    padding-top: 10px;
+    /* Opcional: Adicione um pouco de padding no topo se precisar */
 }
 
-.edit-icon, .delete-icon {
+.edit-icon,
+.delete-icon {
     cursor: pointer;
-    font-size: 1.3em; /* Ajuste o tamanho dos ícones se precisar */
+    font-size: 1.3em;
+    /* Ajuste o tamanho dos ícones se precisar */
 }
 
 .edit-icon {
-    color: #a5b4fc; /* Azul Claro Suave para Editar */
+    color: #a5b4fc;
+    /* Azul Claro Suave para Editar */
 }
 
 .delete-icon {
-    color: #ec93e0; /* Vermelho Suave para Deletar */
+    color: #ec93e0;
+    /* Vermelho Suave para Deletar */
 }

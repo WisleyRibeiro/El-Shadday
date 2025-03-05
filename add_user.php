@@ -51,7 +51,6 @@ try {
     ]);
 
     echo json_encode(['success' => true]);
-
 } catch (PDOException $e) {
     echo json_encode([
         'success' => false,
@@ -63,4 +62,3 @@ try {
         'error' => $e->getMessage()
     ]);
 }
-?>

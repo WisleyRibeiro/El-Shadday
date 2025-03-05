@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuários do Sistema</title>
     <link rel="stylesheet" href="users_system.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
             <h3>El-Shadday</h3>
             <button class="sidebar-toggle-btn" onclick="toggleSidebar()">
-                <i class="fas fa-chevron-left"></i>  </button>
+                <i class="fas fa-chevron-left"></i> </button>
             </button>
         </div>
         <nav class="sidebar-nav">
@@ -68,7 +72,7 @@
 
         <div class="content-area">
             <div class="user-type-boxes">
-                </div>
+            </div>
         </div>
 
         <footer class="footer">
@@ -77,83 +81,90 @@
     </div>
 
     <button class="floating-add-btn" id="addUserBtn">
-    <i class="fas fa-plus"></i>
-</button>
+        <i class="fas fa-plus"></i>
+    </button>
 
-<div id="addUserModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h2>Cadastrar Novo Usuário</h2>
-        <form id="userForm">
-            <input type="hidden" id="congregacaoId" name="congregacao_id">
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Cadastrar Novo Usuário</h2>
+            <form id="userForm">
+                <input type="hidden" id="congregacaoId" name="congregacao_id">
 
-            <div class="form-group">
-                <label for="fullName">Nome Completo:</label>
-                <input type="text" id="fullName" name="username" required>
-            </div>
+                <div class="form-group">
+                    <label for="fullName">Nome Completo:</label>
+                    <input type="text" id="fullName" name="username" required>
+                </div>
 
-            <div class="form-group">
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
 
-            <div class="form-group">
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="senha" required>
-            </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="senha" required>
+                </div>
 
-            <div class="form-group">
-                <label for="confirmPassword">Confirmar Senha:</label>
-                <input type="password" id="confirmPassword" required>
-            </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Senha:</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
 
-            <div class="form-group">
-                <label for="userType">Tipo de Usuário:</label>
-                <input list="userTypes" id="userType" name="user_type" required>
-                <datalist id="userTypes">
+                <div class="form-group">
+                    <label for="userType">Tipo de Usuário:</label>
+                    <input list="userTypes" id="userType" name="user_type" required>
+                    <datalist id="userTypes">
                     </datalist>
-            </div>
+                </div>
 
-            <div class="form-group">
-                <label for="phone">Telefone:</label>
-                <input type="tel" id="phone" name="phone_number" required>
-            </div>
+                <div class="form-group">
+                    <label for="phone">Telefone:</label>
+                    <input type="tel" id="phone" name="phone_number" required>
+                </div>
 
-            <button type="submit" class="submit-btn">Cadastrar</button>
-        </form>
+                <button type="submit" class="submit-btn">Cadastrar</button>
+            </form>
+        </div>
     </div>
-</div>
 
-<div id="editUserModal" class="modal" style="display: none;"> <div class="modal-content">
-    <span class="close-modal edit-modal-close">&times;</span> <h2>Editar Usuário</h2> <form id="editUserForm"> <input type="hidden" id="editUserId" name="edit_user_id"> <div class="form-group">
-            <label for="editFullName">Nome Completo:</label>
-            <input type="text" id="editFullName" name="username" required>
+    <div id="editUserModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal edit-modal-close">&times;</span>
+            <h2>Editar Usuário</h2>
+            <form id="editUserForm"> <input type="hidden" id="editUserId" name="edit_user_id">
+                <div class="form-group">
+                    <label for="editFullName">Nome Completo:</label>
+                    <input type="text" id="editFullName" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editEmail">E-mail:</label>
+                    <input type="email" id="editEmail" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editPassword">Nova Senha (deixe em branco para manter a atual):</label>
+                    <input type="password" id="editPassword" name="senha"> <small>Deixe este campo em branco para manter
+                        a senha atual.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="editUserType">Tipo de Usuário:</label>
+                    <input list="editUserTypes" id="editUserType" name="user_type" required>
+                    <datalist id="editUserTypes"> </datalist>
+                </div>
+
+                <div class="form-group">
+                    <label for="editPhone">Telefone:</label>
+                    <input type="tel" id="editPhone" name="phone_number" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Salvar Alterações</button>
+            </form>
         </div>
 
-        <div class="form-group">
-            <label for="editEmail">E-mail:</label>
-            <input type="email" id="editEmail" name="email" required>
-        </div>
-
-        <div class="form-group">
-            <label for="editPassword">Nova Senha (deixe em branco para manter a atual):</label>
-            <input type="password" id="editPassword" name="senha"> <small>Deixe este campo em branco para manter a senha atual.</small>
-        </div>
-
-        <div class="form-group">
-            <label for="editUserType">Tipo de Usuário:</label>
-            <input list="editUserTypes" id="editUserType" name="user_type" required>
-            <datalist id="editUserTypes"> </datalist>
-        </div>
-
-        <div class="form-group">
-            <label for="editPhone">Telefone:</label>
-            <input type="tel" id="editPhone" name="phone_number" required>
-        </div>
-
-        <button type="submit" class="submit-btn">Salvar Alterações</button> </form>
-</div>
-
-<script src="users_system.js"></script>
+        <script src="users_system.js"></script>
 </body>
+
 </html>

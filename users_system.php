@@ -36,7 +36,6 @@ try {
         'success' => true,
         'data' => $usersByType
     ]);
-
 } catch (PDOException $e) {
     error_log("Erro no banco de dados: " . $e->getMessage());
     echo json_encode([
@@ -50,4 +49,3 @@ try {
         'error' => $e->getMessage()
     ]);
 }
-?>

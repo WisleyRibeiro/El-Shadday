@@ -30,9 +30,7 @@ try {
         // Se o ID do usuário não foi passado corretamente
         echo json_encode(['success' => false, 'error' => 'ID do usuário inválido ou não fornecido.']);
     }
-
 } catch (PDOException $e) {
     // Em caso de erro de conexão ou outros erros PDO
     echo json_encode(['success' => false, 'error' => 'Erro de banco de dados: ' . $e->getMessage()]);
 }
-?>

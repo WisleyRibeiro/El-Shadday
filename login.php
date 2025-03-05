@@ -6,7 +6,8 @@ $port = 5432;
 $database = "postgres";
 
 // Função auxiliar para exibir alertas
-function showAlert($message, $redirect = 'index.html') {
+function showAlert($message, $redirect = 'index.html')
+{
     echo "<script>
         alert('" . addslashes($message) . "');
         window.location.href = '$redirect';
@@ -24,11 +25,11 @@ $email = $_POST["email"] ?? '';
 $senha_digitada = $_POST["password"] ?? '';
 
 // Validação de campos obrigatórios
-if(empty($email)) {
+if (empty($email)) {
     showAlert('Por favor, informe seu e-mail.');
 }
 
-if(empty($senha_digitada)) {
+if (empty($senha_digitada)) {
     showAlert('Por favor, informe sua senha.');
 }
 
@@ -68,4 +69,3 @@ echo "<script>
 </script>";
 
 pg_close($conn);
-?>
